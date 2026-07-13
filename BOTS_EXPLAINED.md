@@ -452,8 +452,8 @@ Add these to `.env` before starting the userbot:
 ```env
 BOT_TOKEN=123456:your_assistant_bot_token
 V26_BOT_USERNAME=@YourAssistantBotUsername
-SUDO_USERS=123456789
-LOG_CHAT_ID=-1001234567890
+SUDO_USERS=111111111
+LOG_CHAT_ID=-100000000000
 ```
 
 #### 4) Integration & Testing

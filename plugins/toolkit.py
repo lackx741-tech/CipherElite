@@ -275,7 +275,7 @@ async def register_commands():
                                          "⚡ **Engine:** Advanced File Processor")
             
             # Download file to temporary location
-            temp_dir = "temp_cipher_elite"
+            temp_dir = "temp_v26"
             os.makedirs(temp_dir, exist_ok=True)
             filename = await reply_message.download_media(file=temp_dir)
             
@@ -342,7 +342,7 @@ async def register_commands():
             if filename_input:
                 filename = filename_input
             else:
-                filename = f"cipher_elite_pack_{int(time.time())}.txt"
+                filename = f"v26_pack_{int(time.time())}.txt"
             
             status_msg = await event.reply("🎭 **V26 Userbot Text Packer**\n\n"
                                          f"📝 **Creating:** {filename}\n"
@@ -351,7 +351,7 @@ async def register_commands():
             
             try:
                 # Create temporary file
-                temp_dir = "temp_cipher_elite"
+                temp_dir = "temp_v26"
                 os.makedirs(temp_dir, exist_ok=True)
                 temp_filepath = os.path.join(temp_dir, filename)
                 

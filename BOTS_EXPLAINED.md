@@ -266,7 +266,7 @@ V26 protects sensitive operations with decorators in `utils/decorators.py`:
 
 #### Communication (7)
 
-- `autoforward` *(repository module file: `autoforword.py`)*
+- `autoforward`
 - `broadcast`
 - `echo`
 - `raid`

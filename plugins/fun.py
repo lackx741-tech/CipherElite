@@ -1,7 +1,7 @@
 from telethon import events
 import random
 from plugins.bot import add_handler
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 
 
@@ -21,7 +21,7 @@ def init(client_instance):
 async def register_commands():
 
     # ── DICE ──
-    @CipherElite.on(events.NewMessage(pattern=r"\.dice"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.dice"))
     @rishabh()
     async def dice(event):
         number = random.randint(1, 6)
@@ -29,7 +29,7 @@ async def register_commands():
         await event.reply(f"🎲 {dice_emojis[number-1]} ({number})")
 
     # ── COIN ──
-    @CipherElite.on(events.NewMessage(pattern=r"\.coin"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.coin"))
     @rishabh()
     async def coin(event):
         coins = ["Heads", "Tails"]
@@ -38,14 +38,14 @@ async def register_commands():
         await event.reply(f"{coin_emoji} Coin landed on: **{result}**!")
 
     # ── DECIDE ──
-    @CipherElite.on(events.NewMessage(pattern=r"\.decide"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.decide"))
     @rishabh()
     async def decide(event):
         decisions = ["Yes", "No", "Maybe", "Definitely", "Never"]
         await event.reply(f"❓ **{random.choice(decisions)}**")
 
     # ── XO GAME ──
-    @CipherElite.on(events.NewMessage(pattern=r"\.xogame$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.xogame$"))
     @rishabh()
     async def xogame(event):
         try:

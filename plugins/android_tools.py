@@ -2,7 +2,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -20,7 +20,7 @@ async def register_commands():
     # ---------------------------------------------------------------------------------
     # 1. MAGISK COMMAND
     # ---------------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.magisk"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.magisk"))
     @rishabh()
     async def magisk_handler(event):
         status = await event.reply("🔄 **Fetching Magisk releases...**")
@@ -40,7 +40,7 @@ async def register_commands():
                     f"[Changelog]({data['magisk']['note']})\n"
                 )
 
-            await status.edit(f"🎭 **Cipher Elite Magisk**\n\n"
+            await status.edit(f"🎭 **V26 Magisk**\n\n"
                               f"{releases}\n"
                               f"✅ **Success!**")
         except Exception as e:
@@ -49,7 +49,7 @@ async def register_commands():
     # ---------------------------------------------------------------------------------
     # 2. DEVICE INFO (Codename -> Model)
     # ---------------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.device\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.device\s+(.+)"))
     @rishabh()
     async def device_handler(event):
         try:
@@ -67,7 +67,7 @@ async def register_commands():
                         f"🏷 **Name**: `{item['name']}`\n"
                         f"🔢 **Model**: `{item['model']}`\n\n"
                     )
-                await status.edit(f"🎭 **Cipher Elite Device Search**\n\n"
+                await status.edit(f"🎭 **V26 Device Search**\n\n"
                                   f"🔎 **Result for:** `{codename}`\n\n"
                                   f"{reply_text}"
                                   f"✅ **Found!**")
@@ -79,7 +79,7 @@ async def register_commands():
     # ---------------------------------------------------------------------------------
     # 3. CODENAME SEARCH (Brand + Model -> Codename)
     # ---------------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.codename\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.codename\s+(.+)"))
     @rishabh()
     async def codename_handler(event):
         try:
@@ -117,7 +117,7 @@ async def register_commands():
                         f"🏷 **Name**: `{item['name']}`\n"
                         f"🔢 **Model**: `{item['model']}`\n\n"
                     )
-                await status.edit(f"🎭 **Cipher Elite Codename Search**\n\n"
+                await status.edit(f"🎭 **V26 Codename Search**\n\n"
                                   f"{reply_text}"
                                   f"✅ **Success!**")
             else:
@@ -129,7 +129,7 @@ async def register_commands():
     # ---------------------------------------------------------------------------------
     # 4. TWRP FINDER
     # ---------------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.twrp\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.twrp\s+(.+)"))
     @rishabh()
     async def twrp_handler(event):
         try:
@@ -148,7 +148,7 @@ async def register_commands():
             size = page.find("span", {"class": "filesize"}).text
             date = page.find("em").text.strip()
             
-            await status.edit(f"🎭 **Cipher Elite TWRP Finder**\n\n"
+            await status.edit(f"🎭 **V26 TWRP Finder**\n\n"
                               f"📱 **Device:** `{device}`\n"
                               f"💾 **File:** `{dl_file}`\n"
                               f"📦 **Size:** `{size}`\n"

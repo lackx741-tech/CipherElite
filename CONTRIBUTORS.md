@@ -1,39 +1,6 @@
 # Contributors Guide
 
-Welcome to the CipherElite Userbot project! We appreciate your interest in contributing to this advanced Telegram userbot.
-
-## 🏢 About Thanos Pro Organization
-
-**CipherElite** is proudly developed and maintained under the **Thanos Pro Organization**, founded and led by **Rishabh Anand**. Our organization focuses on creating innovative, secure, and powerful Telegram automation tools.
-
----
-
-## 👨‍💻 Project Founder & Lead Developer
-
-### Rishabh Anand (@rishabhops)
-<p align="center">
-  <img src="https://img.shields.io/badge/Founder%20%26%20Lead%20Developer-Rishabh%20Anand-blue?style=for-the-badge&logo=github">
-</p>
-
-**Role**: Project Founder, Lead Developer, Organization Owner  
-**GitHub**: [@rishabhops](https://github.com/rishabhops)  
-**Telegram**: [@thanosceo](https://t.me/thanosceo)  
-**Organization**: Thanos Pro Organization  
-
-#### 🎯 Contributions:
-- **Project Architecture**: Designed and implemented the core architecture of CipherElite
-- **Security Implementation**: Developed advanced security features and sudo protection
-- **Plugin System**: Created the dynamic plugin system for modular functionality
-- **Performance Optimization**: Optimized bot performance and resource usage
-- **Documentation**: Authored comprehensive documentation and guides
-- **Community Management**: Manages official channels and support groups
-
-
-
-#### 📈 Development Timeline:
-- **2024**: Initial concept and development of CipherElite
-- **2025**: Official release and community launch
-- **Ongoing**: Continuous updates, feature additions, and community support
+Welcome to the V26 Userbot project! We appreciate your interest in contributing to this advanced Telegram userbot.
 
 ---
 
@@ -53,7 +20,6 @@ We welcome contributions from developers of all skill levels! Here's how you can
    - README improvements
    - Code comments
    - User guides
-   - API documentation
 
 3. **Testing**
    - Bug reporting
@@ -78,3 +44,30 @@ We welcome contributions from developers of all skill levels! Here's how you can
 
 ### 🚀 Development Setup
 
+```bash
+# Clone your fork
+git clone https://github.com/YOUR_USERNAME/V26Userbot
+cd V26Userbot
+
+# Install dependencies
+pip3 install -r requirements.txt
+
+# Copy the env file
+cp sample.env .env
+
+# Edit environment variables
+nano .env
+```
+
+### 📝 Code Style
+
+- Follow PEP 8 Python style guidelines
+- Add docstrings to all functions
+- Write meaningful commit messages
+- Test your changes before submitting
+
+---
+
+## 📄 License
+
+V26 Userbot is open-source software licensed under the MIT License.

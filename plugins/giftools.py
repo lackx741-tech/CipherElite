@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    giftools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -12,7 +12,7 @@ import os
 import asyncio
 import aiohttp
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -27,7 +27,7 @@ def init(client_instance):
     add_handler("giftools", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.gif"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gif"))
     @rishabh()
     async def gif_search(event):
         text = event.text.split(maxsplit=1)
@@ -74,7 +74,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.vtog"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.vtog"))
     @rishabh()
     async def video_to_gif(event):
         if not event.is_reply:
@@ -130,7 +130,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.rvgif"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.rvgif"))
     @rishabh()
     async def reverse_gif(event):
         if not event.is_reply:
@@ -178,7 +178,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.bwgif"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.bwgif"))
     @rishabh()
     async def bw_gif(event):
         if not event.is_reply:

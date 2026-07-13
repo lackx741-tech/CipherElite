@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    forcesub
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -14,7 +14,7 @@ from pathlib import Path
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.errors import UserNotParticipantError
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -35,7 +35,7 @@ def save_data(data):
 
 def init(client_instance):
     commands = [
-        ".fsub <@username/link> - Enable force subscribe (e.g., .fsub @THANOS_PRO or .fsub https://t.me/THANOS_PRO)",
+        ".fsub <@username/link> - Enable force subscribe (e.g., .fsub @v26userbot)",
         ".unforcesub - Disable force subscribe in this chat",
         ".fsub status - Check force subscribe status"
     ]
@@ -43,13 +43,13 @@ def init(client_instance):
     add_handler("forcesub", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.fsub(?: |$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.fsub(?: |$)"))
     @rishabh()
     async def fsub(event):
         text = event.text.strip().split(maxsplit=1)
         
         if len(text) == 1:
-            await event.reply("❌ **Usage:** `.fsub <channel_username_or_link>`\n💡 **Example:** `.fsub @THANOS_PRO`")
+            await event.reply("❌ **Usage:** `.fsub <channel_username_or_link>`\n💡 **Example:** `.fsub @YourChannel`")
             return
         
         if text[1].lower() == "status":
@@ -100,7 +100,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ **Invalid channel!** Make sure the bot/userbot has access to it.\n**Error:** `{str(e)}`")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unforcesub"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unforcesub"))
     @rishabh()
     async def unforcesub(event):
         chat_id = str(event.chat_id)
@@ -115,7 +115,7 @@ async def register_commands():
         
         await event.reply("✅ Force subscribe disabled for this chat!")
 
-    @CipherElite.on(events.NewMessage(incoming=True))
+    @V26Userbot.on(events.NewMessage(incoming=True))
     async def check_forcesub(event):
         if not (event.is_group or event.is_channel) or event.out:
             return

@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Assistant Bot Plugin
+#  V26 Userbot - Assistant Bot Plugin
 #
 #  Plugin Name:    assistant
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -130,7 +130,7 @@ def init_bot_plugin(bot, owner_id, owner_name):
                 [Button.inline("🤖 Assistant", b"menu_assistant")],
                 [Button.inline("📊 Stats", b"menu_stats")],
                 [Button.inline("⚙️ Settings", b"menu_settings")],
-                [Button.url("💬 Support", "https://t.me/thanosprosss")]
+                [Button.url("💬 Support", "https://t.me/v26userbot")]
             ]
             
             await event.reply(text, buttons=buttons, parse_mode='html')
@@ -260,7 +260,7 @@ def init_bot_plugin(bot, owner_id, owner_name):
                 [Button.inline("🤖 Assistant", b"menu_assistant")],
                 [Button.inline("📊 Stats", b"menu_stats")],
                 [Button.inline("⚙️ Settings", b"menu_settings")],
-                [Button.url("💬 Support", "https://t.me/thanosprosss")]
+                [Button.url("💬 Support", "https://t.me/v26userbot")]
             ]
             
             await event.edit(text, buttons=buttons, parse_mode='html')

@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    purge
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -22,7 +18,7 @@ from telethon import events
 from telethon.errors import RPCError
 from telethon.tl.types import ChannelParticipantsAdmins, PeerUser
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -46,7 +42,7 @@ async def is_user_admin(client, chat_id, user_id):
     except Exception:
         return True  # Allow in DMs
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.(purge|p)$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.(purge|p)$", outgoing=True))
 @rishabh()
 async def purge(event):
     """Delete messages from replied message to current message."""
@@ -57,7 +53,7 @@ async def purge(event):
     chat_id = event.chat_id
     user_id = event.sender_id
 
-    if not await is_user_admin(CipherElite, chat_id, user_id):
+    if not await is_user_admin(V26Userbot, chat_id, user_id):
         await event.reply("You need to be an admin to purge messages in this chat.")
         return
 
@@ -73,7 +69,7 @@ async def purge(event):
     try:
         msg_ids = list(range(start_msg_id, end_msg_id + 1))
         for i in range(0, len(msg_ids), batch_size):
-            await CipherElite.delete_messages(chat_id, msg_ids[i:i + batch_size])
+            await V26Userbot.delete_messages(chat_id, msg_ids[i:i + batch_size])
             await asyncio.sleep(0.5)
 
         confirmation = await event.reply("Purge completed successfully!")
@@ -87,7 +83,7 @@ async def purge(event):
 # Global dictionary to track cancellation flags
 cancellation_flags = {}
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.delall$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.delall$", outgoing=True))
 @rishabh()
 async def delall(event):
     """Delete all messages (optionally for a specific user) with cancellation support."""
@@ -111,14 +107,14 @@ async def delall(event):
     if not is_private:
         if target_user and target_user != user_id:
             # Deleting another user's messages - need admin
-            if not await is_user_admin(CipherElite, chat, user_id):
+            if not await is_user_admin(V26Userbot, chat, user_id):
                 msg = await event.respond("🚫 You need admin rights to delete other users' messages!")
                 await asyncio.sleep(5)
                 await msg.delete()
                 return
         elif not target_user:
             # Deleting all messages - need admin
-            if not await is_user_admin(CipherElite, chat, user_id):
+            if not await is_user_admin(V26Userbot, chat, user_id):
                 msg = await event.respond("🚫 You need admin rights to delete all messages!")
                 await asyncio.sleep(5)
                 await msg.delete()
@@ -151,7 +147,7 @@ async def delall(event):
     deleted_count = 0
 
     try:
-        async for message in CipherElite.iter_messages(
+        async for message in V26Userbot.iter_messages(
             event.chat_id,
             from_user=target_user,
             reverse=True  # Process oldest first to avoid gaps
@@ -180,7 +176,7 @@ async def delall(event):
     except Exception:
         pass
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.cancel$"))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.cancel$"))
 async def cancel_delall(event):
     """Handle cancellation requests for delall operations."""
     chat_id = event.chat_id

@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    arts
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #  Created:        09/07/2026
@@ -11,7 +11,7 @@
 
 import re
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -42,14 +42,14 @@ def init(client_instance):
         ".shitos - Shitos art",
         ".dislike - Dislike art"
     ]
-    description = "🎨 CipherElite Arts – Collection of text arts and ASCII | Created: 09/07/2026"
+    description = "🎨 V26 Arts – Collection of text arts and ASCII | Created: 09/07/2026"
     add_handler("arts", commands, description)
 
 
 async def register_commands():
 
     # ─── CARRY ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.carry\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.carry\s+(.+)"))
     @rishabh()
     async def carry_cmd(event):
         name = event.pattern_match.group(1)
@@ -73,7 +73,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── DED ────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.ded\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ded\s+(.+)"))
     @rishabh()
     async def ded_cmd(event):
         name = event.pattern_match.group(1)
@@ -98,7 +98,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── STHINK ─────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.sthink\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sthink\s+(.+)"))
     @rishabh()
     async def sthink_cmd(event):
         name = event.pattern_match.group(1)
@@ -124,7 +124,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── SFROG ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.sfrog\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sfrog\s+(.+)"))
     @rishabh()
     async def sfrog_cmd(event):
         name = event.pattern_match.group(1)
@@ -150,7 +150,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── SDEAD ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.sdead\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sdead\s+(.+)"))
     @rishabh()
     async def sdead_cmd(event):
         name = event.pattern_match.group(1)
@@ -176,7 +176,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── STRUMP ─────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.strump\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.strump\s+(.+)"))
     @rishabh()
     async def strump_cmd(event):
         name = event.pattern_match.group(1)
@@ -202,7 +202,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── SCHINA ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.schina\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.schina\s+(.+)"))
     @rishabh()
     async def schina_cmd(event):
         name = event.pattern_match.group(1)
@@ -229,7 +229,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── SSHIT ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.sshit$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sshit$"))
     @rishabh()
     async def sshit_cmd(event):
         art = r"""
@@ -250,7 +250,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── ELOVE ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.elove$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.elove$"))
     @rishabh()
     async def elove_cmd(event):
         art = r"""
@@ -281,7 +281,7 @@ async def register_commands():
         await event.edit(art)
 
     # ─── MONSTER ─────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.monster$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.monster$"))
     @rishabh()
     async def monster_cmd(event):
         art = r"""
@@ -296,7 +296,7 @@ _████
         await event.edit(art)
 
     # ─── PIG ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.pig$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.pig$"))
     @rishabh()
     async def pig_cmd(event):
         art = r"""
@@ -312,7 +312,7 @@ _████
         await event.edit(art)
 
     # ─── GUN ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.gun$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gun$"))
     @rishabh()
     async def gun_cmd(event):
         art = r"""
@@ -328,7 +328,7 @@ _████
         await event.edit(art)
 
     # ─── DOG ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.dog$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.dog$"))
     @rishabh()
     async def dog_cmd(event):
         art = r"""
@@ -342,7 +342,7 @@ _████
         await event.edit(art)
 
     # ─── HEY ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.hey$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.hey$"))
     @rishabh()
     async def hey_cmd(event):
         art = r"""
@@ -354,7 +354,7 @@ _████
         await event.edit(art)
 
     # ─── HMF ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.hmf$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.hmf$"))
     @rishabh()
     async def hmf_cmd(event):
         art = r"""
@@ -378,7 +378,7 @@ _████
         await event.edit(art)
 
     # ─── COUPLE ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.couple$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.couple$"))
     @rishabh()
     async def couple_cmd(event):
         art = r"""
@@ -403,7 +403,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── SUP ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.sup$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sup$"))
     @rishabh()
     async def sup_cmd(event):
         art = r"""
@@ -450,7 +450,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── INDIA ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.india$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.india$"))
     @rishabh()
     async def india_cmd(event):
         art = r"""
@@ -473,7 +473,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── WC ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.wc$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.wc$"))
     @rishabh()
     async def wc_cmd(event):
         art = r"""
@@ -491,7 +491,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── SNK ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.snk$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.snk$"))
     @rishabh()
     async def snk_cmd(event):
         art = r"""
@@ -585,7 +585,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── BYE ──────────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.bye$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.bye$"))
     @rishabh()
     async def bye_cmd(event):
         art = r"""
@@ -599,7 +599,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── SHITOS ──────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.shitos$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.shitos$"))
     @rishabh()
     async def shitos_cmd(event):
         art = r"""
@@ -613,7 +613,7 @@ Love You Forever,,,,,
         await event.edit(art)
 
     # ─── DISLIKE ─────────────────────────────────────────────────────────────
-    @CipherElite.on(events.NewMessage(pattern=r"\.dislike$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.dislike$"))
     @rishabh()
     async def dislike_cmd(event):
         art = r"""

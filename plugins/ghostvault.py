@@ -1,6 +1,6 @@
 # =============================================================================
-#  CipherElite Ghost Vault (Anti-Delete & Edit Tracker)
-#  Author:         CipherElite Dev (@rishabhops)
+#  V26 Userbot - Ghost Vault (Anti-Delete & Edit Tracker)
+#  Author:         V26 Dev
 # =============================================================================
 
 import os
@@ -10,7 +10,7 @@ from telethon import events
 from telethon.utils import get_display_name, get_peer_id
 
 from config.config import Config
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh  
 
@@ -78,7 +78,7 @@ def init(client_instance):
 # COMMAND HANDLERS
 # ==========================================
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.vault(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.vault(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def toggle_global_vault(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
@@ -99,7 +99,7 @@ async def toggle_global_vault(event):
         await event.reply("❌ **Syntax Error:** Use `.vault on` or `.vault off`")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.vaultchat(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.vaultchat(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def toggle_chat_vault(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
@@ -123,7 +123,7 @@ async def toggle_chat_vault(event):
         await event.reply("❌ **Syntax Error:** Use `.vaultchat on` or `.vaultchat off`")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.vaultlist$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.vaultlist$", outgoing=True))
 @rishabh()
 async def list_vault_chats(event):
     db = load_db()
@@ -145,7 +145,7 @@ async def list_vault_chats(event):
 # ==========================================
 
 # 1. Silently memorize messages as they arrive
-@CipherElite.on(events.NewMessage(incoming=True))
+@V26Userbot.on(events.NewMessage(incoming=True))
 async def message_cacher(event):
     db = load_db()
     chat_id = str(get_peer_id(event.chat_id)) if event.chat_id else None
@@ -156,7 +156,7 @@ async def message_cacher(event):
 
 
 # 2. Catch Deleted Messages
-@CipherElite.on(events.MessageDeleted())
+@V26Userbot.on(events.MessageDeleted())
 async def catch_deletions(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
         return
@@ -198,7 +198,7 @@ async def catch_deletions(event):
 
 
 # 3. Catch Edited Messages
-@CipherElite.on(events.MessageEdited())
+@V26Userbot.on(events.MessageEdited())
 async def catch_edits(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
         return

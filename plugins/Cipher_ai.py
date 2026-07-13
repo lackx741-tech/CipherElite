@@ -1,10 +1,10 @@
 # =============================================================================
-#  CipherElite Userbot Plugin - Cipher AI (Google Gemini)
+#  V26 Userbot Plugin - Cipher AI (Google Gemini)
 #  With Repository Data Access & Real Chat Memory
 #
 #  Plugin Name:    cipher_ai
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  LICENSE:        MIT
 # =============================================================================
@@ -14,7 +14,7 @@ import google.generativeai as genai
 import aiohttp
 import json
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from utils.helpers import (
     V26_REPOSITORY_BRANCH,
@@ -32,8 +32,8 @@ SYSTEM_PROMPT = f"""You are **V26 AI**, a specialized AI assistant created for t
 
 **ABOUT YOU (ONLY MENTION IF EXPLICITLY ASKED):**
 • **Name:** V26 AI
-• **Created by:** Rishabh Anand (@rishabhops)
-• **Owner/Creator's Telegram:** @thanosceo
+• **Created by:** V26 Dev
+• **Owner/Creator's Telegram:** @v26userbot
 • **Project:** V26 Userbot - Advanced Telegram Userbot
 • **Repository:** {V26_REPOSITORY_URL}
 • **Primary Repo Branch:** elite
@@ -155,7 +155,7 @@ def init(client):
     def estimate_response_type(query):
         """Estimate if question needs short or detailed answer"""
         short_keywords = ["what is", "who is", "when", "where", "how many", "define", "meaning", "your name", "who made", "who created"]
-        complex_keywords = ["how to", "deploy", "setup", "install", "tutorial", "guide", "step", "process", "configure", "build", "create", "write code", "cipherelite", "v26", "userbot"]
+        complex_keywords = ["how to", "deploy", "setup", "install", "tutorial", "guide", "step", "process", "configure", "build", "create", "write code", "v26", "userbot"]
         
         query_lower = query.lower()
         
@@ -199,7 +199,7 @@ def init(client):
         
         return response
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.ai(?:\s+(.*))?"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ai(?:\s+(.*))?"))
     @rishabh()
     async def ai_handler(event):
         """Handle AI queries with repository context"""
@@ -241,8 +241,8 @@ def init(client):
             
             # Fetch repository data ONLY if question is specifically about V26
             repo_context = ""
-            # Keep legacy CipherElite terms during the V26 migration so old phrasing still resolves repo help.
-            userbot_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
+            
+            userbot_keywords = ["v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
             
             if any(keyword in query.lower() for keyword in userbot_keywords):
                 await thinking_msg.edit("🤔 **V26 AI thinking...** (scanning repository...)")
@@ -349,7 +349,7 @@ def init(client):
             except:
                 pass
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.aiclear"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.aiclear"))
     @rishabh()
     async def aiclear_handler(event):
         """Clear conversation history"""
@@ -361,7 +361,7 @@ def init(client):
         else:
             await event.reply("📭 **No history** in this chat.")
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.aiinfo"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.aiinfo"))
     @rishabh()
     async def aiinfo_handler(event):
         """Show AI info"""
@@ -371,8 +371,8 @@ def init(client):
         info = f"""🤖 **V26 AI - About Me**
 
 **Name:** V26 AI
-**Creator:** Rishabh Anand (@rishabhops)
-**Owner:** @thanosceo
+**Creator:** V26 Dev
+**Owner:** @v26userbot
 **Project:** V26 Userbot
 
 {status_emoji} **Status:** {'Active' if is_enabled else 'Inactive'}
@@ -393,9 +393,9 @@ def init(client):
 • `.aiinfo` - About me
 
 🔗 **Links:**
-• GitHub: https://github.com/lackx741-tech/CipherElite
-• Creator: @rishabhops
-• Owner: @thanosceo"""
+• GitHub: https://github.com/lackx741-tech/V26Userbot
+• Creator: V26 Dev
+• Owner: @v26userbot"""
         
         await event.reply(info)
     

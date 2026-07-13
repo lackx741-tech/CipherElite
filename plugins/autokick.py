@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    autokick
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 import json
 from pathlib import Path
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -40,7 +40,7 @@ def init(client_instance):
     add_handler("autokick", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.autokick"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.autokick"))
     @rishabh()
     async def autokick(event):
         text = event.text.strip().split(maxsplit=1)
@@ -64,7 +64,7 @@ async def register_commands():
         else:
             await event.reply("❌ Invalid option! Use: `on` or `off`")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.dnd"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.dnd"))
     @rishabh()
     async def dnd(event):
         text = event.text.strip().split(maxsplit=1)
@@ -88,7 +88,7 @@ async def register_commands():
         else:
             await event.reply("❌ Invalid option! Use: `on` or `off`")
 
-    @CipherElite.on(events.ChatAction)
+    @V26Userbot.on(events.ChatAction)
     async def handle_new_member(event):
         # Check if someone joined
         if not event.user_joined and not event.user_added:

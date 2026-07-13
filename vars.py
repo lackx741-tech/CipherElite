@@ -24,12 +24,12 @@ ALIVE_PIC = os.getenv("ALIVE_PIC", "https://files.catbox.moe/tocisn.png")
 PING_PIC = os.getenv("PING_PIC", "https://files.catbox.moe/tocisn.png")
 
 # alive name
-ALIVE_NAME = os.getenv("ALIVE_NAME", "rishabh")  
+ALIVE_NAME = os.getenv("ALIVE_NAME", "V26 User")  
 
 # Update Configuration
 # The GitHub repository path remains the current fork path even though the product branding is V26.
-UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/lackx741-tech/CipherElite")
-BRANCH = os.getenv("BRANCH", "elite")
+UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/lackx741-tech/V26Userbot")
+BRANCH = os.getenv("BRANCH", "main")
 
 # for  debugging dont edit this
 if API_ID == 0:

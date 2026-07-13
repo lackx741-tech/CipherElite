@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    fun_animations
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  LICENSE:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • Give proper credit back to the CipherElite Userbot author:
-#        – GitHub: https://github.com/rishabhops/CipherElite
-#        – Telegram: @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -21,7 +17,7 @@ import asyncio
 from collections import deque
 from telethon import events
 from telethon.tl.functions.users import GetFullUserRequest
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -52,7 +48,7 @@ async def edit_or_reply(event, text):
     except Exception:
         return await event.reply(text)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.mind$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.mind$", outgoing=True))
 @rishabh()
 async def mind(event):
     """Animated brain cleanup sequence"""
@@ -77,7 +73,7 @@ async def mind(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 10])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.explode$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.explode$", outgoing=True))
 @rishabh()
 async def explode(event):
     """Explosive animation with a bang"""
@@ -100,7 +96,7 @@ async def explode(event):
     await asyncio.sleep(0.5)
     await event.edit("💥 **BOOM!** Everything's gone! 😎")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.dial$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.dial$", outgoing=True))
 @rishabh()
 async def dial(event):
     """Simulate a call to a VIP"""
@@ -125,7 +121,7 @@ async def dial(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 10])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.zap$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.zap$", outgoing=True))
 @rishabh()
 async def zap(event):
     """Zap someone with a fun animation"""
@@ -154,7 +150,7 @@ async def zap(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 8])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.huh$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.huh$", outgoing=True))
 @rishabh()
 async def huh(event):
     """A confused 'huh?' animation"""
@@ -174,7 +170,7 @@ async def huh(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 5])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.pingpong$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.pingpong$", outgoing=True))
 @rishabh()
 async def pingpong(event):
     """Bouncing ball animation"""
@@ -201,7 +197,7 @@ async def pingpong(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 12])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.spiral$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.spiral$", outgoing=True))
 @rishabh()
 async def spiral(event):
     """Hypnotic spiral animation"""
@@ -226,7 +222,7 @@ async def spiral(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 10])
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.sweets$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.sweets$", outgoing=True))
 @rishabh()
 async def sweets(event):
     """Rotating candy emojis"""
@@ -240,7 +236,7 @@ async def sweets(event):
         deq.rotate(1)
     await event.edit("🍬 Sweet overload! 😋")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.badass$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.badass$", outgoing=True))
 @rishabh()
 async def badass(event):
     """Show off your badass vibe"""
@@ -259,17 +255,17 @@ async def badass(event):
     await asyncio.sleep(0.3)
     await event.edit(f"😎 {DEFAULTUSER} IS THE BOSS! 🔥")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.charge$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.charge$", outgoing=True))
 @rishabh()
 async def charge(event):
     """Charge up a device animation"""
     if event.fwd_from:
         return
     event = await edit_or_reply(event, "🔋 Charging...")
-    txt = "🔋 Quantum Charger Activated...\nDevice: CipherElite Phone\nBattery: "
+    txt = "🔋 Quantum Charger Activated...\nDevice: V26 Phone\nBattery: "
     percentage = 0
     for _ in range(5):
         await event.edit(txt + f"{percentage}%")
         percentage += 20
         await asyncio.sleep(1)
-    await event.edit("🔋 Quantum Charger Done!\nDevice: CipherElite Phone\nBattery: 100% ⚡")
+    await event.edit("🔋 Quantum Charger Done!\nDevice: V26 Phone\nBattery: 100% ⚡")

@@ -1,6 +1,6 @@
 # ==============================================================================
-#  🎭 Cipher Elite - Auto Profile Tools
-#  Copyright (C) 2025 by Cipher Elite.
+#  🎭 V26 Userbot - Auto Profile Tools
+#  Copyright (C) 2025 by V26 Userbot.
 #  All rights reserved.
 # ==============================================================================
 
@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from PIL import Image, ImageDraw, ImageFont
 from telethon import functions, events
 from telethon.errors import FloodWaitError, RPCError
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -22,7 +22,7 @@ if not os.path.exists(ASSETS_DIR):
     os.makedirs(ASSETS_DIR)
 
 
-USER_BG_URL = "https://raw.githubusercontent.com/rishabhops/CipherElite/elite/images/1000083995.jpg"
+USER_BG_URL = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80"
 
 
 BACKUP_BG_URL = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80"
@@ -136,7 +136,7 @@ async def loop_autoname(client):
         try:
             ist_now = get_ist_time()
             time_str = ist_now.strftime("%H:%M")
-            new_name = f"⚡ {time_str} | Cipher Elite"
+            new_name = f"⚡ {time_str} | V26 Userbot"
             await client(functions.account.UpdateProfileRequest(first_name=new_name))
         except FloodWaitError as e:
             await notify_user(client, f"⏳ AutoName FloodWait: {e.seconds}s")
@@ -191,24 +191,24 @@ def init(client_instance):
     add_handler("autoprofile", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.autoname$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.autoname$"))
     @rishabh()
     async def enable_autoname(event):
         if RUNNING_TASKS["autoname"]: return await event.reply("⚠️ Running")
         RUNNING_TASKS["autoname"] = True
-        CipherElite.loop.create_task(loop_autoname(event.client))
+        V26Userbot.loop.create_task(loop_autoname(event.client))
         await event.reply("🎭 **AutoName Started**")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.autobio(?:\s+(.+))?"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.autobio(?:\s+(.+))?"))
     @rishabh()
     async def enable_autobio(event):
-        bio_text = event.pattern_match.group(1) or "Cipher Elite"
+        bio_text = event.pattern_match.group(1) or "V26 Userbot"
         if RUNNING_TASKS["autobio"]: return await event.reply("⚠️ Running")
         RUNNING_TASKS["autobio"] = True
-        CipherElite.loop.create_task(loop_autobio(event.client, bio_text))
+        V26Userbot.loop.create_task(loop_autobio(event.client, bio_text))
         await event.reply(f"🎭 **AutoBio Started:** `{bio_text}`")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.digitalpfp$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.digitalpfp$"))
     @rishabh()
     async def enable_digitalpfp(event):
         if RUNNING_TASKS["digitalpfp"]: return await event.reply("⚠️ Running")
@@ -223,14 +223,14 @@ async def register_commands():
             file = await event.client.upload_file(test_path)
             await event.client(functions.photos.UploadProfilePhotoRequest(file=file))
             RUNNING_TASKS["digitalpfp"] = True
-            CipherElite.loop.create_task(loop_digitalpfp(event.client))
+            V26Userbot.loop.create_task(loop_digitalpfp(event.client))
             await status.edit("🎭 **Digital PFP Started**\nIf your image is missing, a backup Cyberpunk image was used.")
         except FloodWaitError as e:
             await status.edit(f"❌ FloodWait: {e.seconds}s")
         except Exception as e:
             await status.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.end\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.end\s+(.+)"))
     @rishabh()
     async def end_task(event):
         task = event.pattern_match.group(1).lower().strip()

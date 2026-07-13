@@ -10,12 +10,12 @@ import bs4
 import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
 # --- Constants ---
-BG_URL_FULL = "https://raw.githubusercontent.com/rishabhops/CipherElite/elite/images/1765442191944.jpg" 
+BG_URL_FULL = "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1024&q=80" 
 
 
 FONT_URL = "https://raw.githubusercontent.com/google/fonts/main/apache/roboto/static/Roboto-Medium.ttf"
@@ -59,7 +59,7 @@ def init(client_instance):
     add_handler("playstore", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.app(?:\s+(.+))?"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.app(?:\s+(.+))?"))
     @rishabh()
     async def app_search_handler(event):
         try:
@@ -142,7 +142,7 @@ async def register_commands():
 
             # 4. Send
             caption = (
-                f"🎭 **Cipher Elite Play Store**\n\n"
+                f"🎭 **V26 Play Store**\n\n"
                 f"📲 **App:** `{fullapp_name}`\n"
                 f"👨‍💻 **Developer:** [{dev_name}]({dev_link})\n"
                 f"⭐️ **Rating:** `{rating} ⭐`\n"

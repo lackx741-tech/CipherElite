@@ -1,12 +1,12 @@
-# This plugin is part of the Cipher Elite Telegram UserBot
-# Author: Rishabh (https://github.com/rishabhops)
+# This plugin is part of the V26 Userbot
+
 # License: MIT License — See LICENSE file for full text
 
 from telethon import events, errors
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
 from plugins.bot import add_handler
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 
 def init(client_instance):
@@ -24,7 +24,7 @@ def init(client_instance):
     add_handler("admin", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.ban"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ban"))
     @rishabh()
     async def ban(event):
         if event.is_reply:
@@ -39,7 +39,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to ban user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unban"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unban"))
     @rishabh()
     async def unban(event):
         if event.is_reply:
@@ -54,7 +54,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to unban user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.mute"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.mute"))
     @rishabh()
     async def mute(event):
         if event.is_reply:
@@ -69,7 +69,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to mute user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unmute"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unmute"))
     @rishabh()
     async def unmute(event):
         if event.is_reply:
@@ -84,7 +84,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to unmute user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.promote"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.promote"))
     @rishabh()
     async def promote(event):
         if event.is_reply:
@@ -100,7 +100,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to promote user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.demote"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.demote"))
     @rishabh()
     async def demote(event):
         if event.is_reply:
@@ -116,7 +116,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to demote user. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.pin"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.pin"))
     @rishabh()
     async def pin_message(event):
         if event.is_reply:
@@ -130,7 +130,7 @@ async def register_commands():
             except:
                 await event.reply("❌ Failed to pin message. Make sure you have the right permissions!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unpin"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unpin"))
     @rishabh()
     async def unpin_message(event):
         if event.is_reply:

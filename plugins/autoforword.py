@@ -1,6 +1,6 @@
 # =============================================================================
-#  CipherElite Advanced Auto-Forwarder & Cloner
-#  Author:         CipherElite Dev (@rishabhops)
+#  V26 Userbot - Advanced Auto-Forwarder & Cloner
+#  Author:         V26 Dev
 # =============================================================================
 
 import os
@@ -11,7 +11,7 @@ from telethon import events
 from telethon.errors import FloodWaitError, ChatWriteForbiddenError
 from telethon.utils import get_peer_id
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh  
 
@@ -99,7 +99,7 @@ async def safe_clone(client, dest_id, msg):
 # COMMAND HANDLERS
 # ==========================================
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.addfwd(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.addfwd(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def add_forward(event):
     args = event.pattern_match.group(1).split()
@@ -127,7 +127,7 @@ async def add_forward(event):
     await status.edit(f"✅ **Auto-Forward Link Created!**\n\n**Source:** `{source}`\n**Dest:** `{dest}`\n\n*Listening for new messages...*")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.delfwd(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.delfwd(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def del_forward(event):
     args = event.pattern_match.group(1).split()
@@ -150,7 +150,7 @@ async def del_forward(event):
         await event.reply("⚠️ **Could not find this route in the database.**")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.listfwd$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.listfwd$", outgoing=True))
 @rishabh()
 async def list_forward(event):
     db = load_db()
@@ -169,7 +169,7 @@ async def list_forward(event):
     await event.reply(text)
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.batchfwd(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.batchfwd(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def batch_forward(event):
     args = event.pattern_match.group(1).split()
@@ -230,7 +230,7 @@ async def batch_forward(event):
 # ==========================================
 # THE LIVE AUTO-FORWARD ENGINE
 # ==========================================
-@CipherElite.on(events.NewMessage())
+@V26Userbot.on(events.NewMessage())
 async def live_forward_worker(event):
     db = load_db()
     if not db["routes"]:

@@ -1,23 +1,23 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    raid
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
-#    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
+#    • If you copy or fork this plugin, keep this header intact.
+
+
+
+
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
 from telethon import events, utils
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 import asyncio
@@ -158,7 +158,7 @@ ACTIVATION_MESSAGE = """
 🛡️ **Protection:** Elite Shield Active
 ✅ **Status:** Operational
 
-🤖 **Powered by CipherElite**
+🤖 **Powered by V26 Userbot**
 """
 
 def init(client_instance):
@@ -167,7 +167,7 @@ def init(client_instance):
         ".dreplyraid - ❌ Deactivate active raid system", 
         ".raidinfo - 📊 Display raid statistics and data"
     ]
-    description = "🎭 Cipher Elite Raid System - Advanced bilingual raiding with flexible targeting"
+    description = "🎭 V26 Raid System - Advanced bilingual raiding with flexible targeting"
     add_handler("raid", commands, description)
 
 async def parse_user_target(event, args):
@@ -206,7 +206,7 @@ async def parse_user_target(event, args):
     
     return user
 
-@CipherElite.on(events.NewMessage)
+@V26Userbot.on(events.NewMessage)
 async def handle_all_messages(event):
     if event.sender_id in active_raids["users"]:
         try:
@@ -231,7 +231,7 @@ async def handle_all_messages(event):
             active_raids["stats"][event.sender_id] += 1
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r".replyraid(?: |$)(.*)"))
+    @V26Userbot.on(events.NewMessage(pattern=r".replyraid(?: |$)(.*)"))
     @rishabh()
     async def activate_raid(event):
         try:
@@ -242,7 +242,7 @@ async def register_commands():
             user = await parse_user_target(event, args)
             
             if not user:
-                await event.reply("🎭 **Cipher Elite Raid System**"
+                await event.reply("🎭 **V26 Raid System**"
                                 "❌ **Error:** No target specified!"
                                 "💡 **Usage Options:**"
                                 "• Reply to user's message: `.replyraid hindi`"
@@ -253,15 +253,15 @@ async def register_commands():
             
             # Check if target is the bot owner
             if user.id == CIPHER_ELITE_OWNER:
-                await event.reply("🎭 **Cipher Elite Security Protocol**"
-                                "🛡️ **Access Denied:** You Cannot target my developer Rishabh"
+                await event.reply("🎭 **V26 Security Protocol**"
+                                "🛡️ **Access Denied:** You Cannot target the bot owner"
                                 "🔒 **Security Level:** Maximum Protection Active"
                                 "⚠️ **Status:** Operation Blocked by Elite Shield")
                 return
             
             # Check if already raiding this user
             if user.id in active_raids["users"]:
-                await event.reply("🎭 **Cipher Elite Raid System**"
+                await event.reply("🎭 **V26 Raid System**"
                                 f"⚠️ **Already raiding:** {utils.get_display_name(user)}"
                                 f"💡 **Tip:** Use `.dreplyraid` to stop the current raid first")
                 return
@@ -283,21 +283,21 @@ async def register_commands():
             await event.reply(activation_msg)
             
         except ValueError as e:
-            await event.reply(f"🎭 **Cipher Elite System Error**"
+            await event.reply(f"🎭 **V26 System Error**"
                             f"❌ **Error:** {str(e)}"
                             f"💡 **Tip:** Make sure the username/ID exists and is accessible")
         except Exception as e:
-            await event.reply(f"🎭 **Cipher Elite System Error**"
+            await event.reply(f"🎭 **V26 System Error**"
                             f"❌ **Error:** {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r".raidinfo"))
+    @V26Userbot.on(events.NewMessage(pattern=r".raidinfo"))
     @rishabh()
     async def raid_info(event):
         try:
             info = f"{RAID_BANNER}🎭 **ACTIVE RAID STATISTICS**"
             
             if not active_raids["users"]:
-                return await event.reply("🎭 **Cipher Elite Raid Monitor**"
+                return await event.reply("🎭 **V26 Raid Monitor**"
                                        "❌ **No active raids detected**"
                                        "💡 **Use `.replyraid` to start raiding**"
                                        "📊 **All systems are idle**")
@@ -319,12 +319,12 @@ async def register_commands():
                     info += f"🎯 **Target ID:** `{user_id}`"
                     info += f"⚠️ **Status:** Entity unavailable"
                 
-            info += f"🤖 **Powered by CipherElite Raid System**"
+            info += f"🤖 **Powered by V26 Raid System**"
             await event.reply(info)
         except Exception as e:
             await event.reply(f"🎭 **Raid Info Error:** {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r".dreplyraid(?: |$)(.*)"))
+    @V26Userbot.on(events.NewMessage(pattern=r".dreplyraid(?: |$)(.*)"))
     @rishabh()
     async def deactivate_raid(event):
         try:
@@ -345,13 +345,13 @@ async def register_commands():
                         user = await event.client.get_entity(username)
                         user_id = user.id
                 except Exception:
-                    await event.reply("🎭 **Cipher Elite Raid System**"
+                    await event.reply("🎭 **V26 Raid System**"
                                     "❌ **Error:** Could not find specified user"
                                     "💡 **Check username/ID and try again**")
                     return
             
             if not user_id:
-                await event.reply("🎭 **Cipher Elite Raid Deactivation**"
+                await event.reply("🎭 **V26 Raid Deactivation**"
                                 "❌ **Error:** No target specified!"
                                 "💡 **Usage Options:**"
                                 "• Reply to user's message: `.dreplyraid`"
@@ -373,9 +373,9 @@ async def register_commands():
                                 f"💥 **Total Hits:** {final_hits}"
                                 f"⏱️ **Duration:** {duration}s"
                                 f"🛡️ **Elite Shield:** Restored"
-                                f"🤖 **Powered by CipherElite**")
+                                f"🤖 **Powered by V26 Userbot**")
             else:
-                await event.reply("🎭 **Cipher Elite Raid System**"
+                await event.reply("🎭 **V26 Raid System**"
                                 "❌ **No active raid found for this user**"
                                 "💡 **Target is not currently being raided**")
                                 

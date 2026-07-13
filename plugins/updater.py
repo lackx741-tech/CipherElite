@@ -1,31 +1,31 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    updater
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
-#    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
+#    • If you copy or fork this plugin, keep this header intact.
+
+
+
+
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
 import os, sys, json, asyncio, aiohttp
 from pathlib import Path
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from config.config import Config
 
 # ──────────────────────────────────────────────────────────────
-GITHUB_OWNER  = "rishabhops"
-GITHUB_REPO   = "CipherElite"
+GITHUB_OWNER  = "lackx741-tech"
+GITHUB_REPO   = "V26Userbot"
 GITHUB_BRANCH = Config.BRANCH
 API_BASE      = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}"
 RAW_BASE      = f"https://raw.githubusercontent.com/{GITHUB_OWNER}/{GITHUB_REPO}/{GITHUB_BRANCH}"
@@ -94,7 +94,7 @@ async def check_and_install_reqs(msg):
         await asyncio.sleep(1.0)
         return False
 
-@CipherElite.on(events.NewMessage(pattern=r"\.checkupdate$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"\.checkupdate$", outgoing=True))
 @rishabh()
 async def check_update(event):
     db       = load_db()
@@ -130,7 +130,7 @@ async def check_update(event):
         text += f"• {f['status'].upper():8} {name} (+{f['additions']}/–{f['deletions']})\n"
     await event.reply(text)
 
-@CipherElite.on(events.NewMessage(pattern=r"\.update$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"\.update$", outgoing=True))
 @rishabh()
 async def do_update(event):
     db       = load_db()

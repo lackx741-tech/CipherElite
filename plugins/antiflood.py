@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    antiflood
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -14,7 +14,7 @@ from pathlib import Path
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -44,7 +44,7 @@ def init(client_instance):
     add_handler("antiflood", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.setflood"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setflood"))
     @rishabh()
     async def setflood(event):
         text = event.text.split(maxsplit=1)
@@ -75,7 +75,7 @@ async def register_commands():
         except ValueError:
             await event.reply("❌ Invalid number!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.antiflood"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.antiflood"))
     @rishabh()
     async def antiflood(event):
         text = event.text.strip()
@@ -109,7 +109,7 @@ async def register_commands():
         
         await event.reply(msg)
 
-    @CipherElite.on(events.NewMessage(incoming=True))
+    @V26Userbot.on(events.NewMessage(incoming=True))
     async def check_flood(event):
         # Skip if not a group or if it's our own message
         if not (event.is_group or event.is_channel) or event.out:

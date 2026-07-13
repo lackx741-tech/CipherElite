@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    glitch
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -12,7 +12,7 @@ import os
 import random
 from PIL import Image, ImageChops
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -24,7 +24,7 @@ def init(client_instance):
     add_handler("glitch", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.glitch"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.glitch"))
     @rishabh()
     async def glitch(event):
         if not event.is_reply:

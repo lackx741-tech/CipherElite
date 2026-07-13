@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    afk
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -24,7 +20,7 @@ import asyncio
 from datetime import datetime, timedelta
 from telethon import events
 from telethon.tl.types import MessageMediaPhoto, MessageMediaDocument, MessageEntityMention, MessageEntityMentionName
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -109,7 +105,7 @@ async def save_media(event, media_msg):
         print(f"Error saving media: {e}")
         return None
 
-@CipherElite.on(events.NewMessage(pattern=r"\.afk(?:\s+(.*))?"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.afk(?:\s+(.*))?"))
 @rishabh()
 async def afk_handler(event):
     """Set AFK status"""
@@ -154,7 +150,7 @@ async def afk_handler(event):
     except Exception as e:
         await event.reply(f"❌ **Error setting AFK:** `{str(e)}`")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.unafk"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.unafk"))
 @rishabh()
 async def unafk_handler(event):
     """Manually remove AFK status"""
@@ -185,7 +181,7 @@ async def unafk_handler(event):
     except Exception as e:
         await event.reply(f"❌ **Error removing AFK:** `{str(e)}`")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.afkstats"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.afkstats"))
 @rishabh()
 async def afkstats_handler(event):
     """Show AFK statistics"""
@@ -216,7 +212,7 @@ async def afkstats_handler(event):
     except Exception as e:
         await event.reply(f"❌ **Error getting stats:** `{str(e)}`")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.afkquote"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.afkquote"))
 @rishabh()
 async def afkquote_handler(event):
     """Get a random AFK quote"""
@@ -226,7 +222,7 @@ async def afkquote_handler(event):
     except Exception as e:
         await event.reply(f"❌ **Error getting quote:** `{str(e)}`")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.afkhelp"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.afkhelp"))
 @rishabh()
 async def afkhelp_handler(event):
     """Show detailed AFK help"""
@@ -260,7 +256,7 @@ async def afkhelp_handler(event):
     except Exception as e:
         await event.reply(f"❌ **Error showing help:** `{str(e)}`")
 
-@CipherElite.on(events.NewMessage(incoming=True))
+@V26Userbot.on(events.NewMessage(incoming=True))
 async def afk_watcher(event):
     """AFK Auto-responder for private and group messages"""
     try:
@@ -362,7 +358,7 @@ async def afk_watcher(event):
     except Exception as e:
         print(f"❌ Error in AFK watcher: {e}")
 
-@CipherElite.on(events.NewMessage(outgoing=True))
+@V26Userbot.on(events.NewMessage(outgoing=True))
 async def afk_auto_remove(event):
     """Automatically remove AFK when user sends a message"""
     try:

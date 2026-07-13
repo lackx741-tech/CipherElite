@@ -1,18 +1,18 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    info
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
-#    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
+#    • If you copy or fork this plugin, keep this header intact.
+
+
+
+
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -28,7 +28,7 @@ from telethon.tl.functions.messages import GetFullChatRequest
 from datetime import datetime, timedelta, timezone
 import html
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -107,7 +107,7 @@ def safe(text: str | None) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 # 👤  .info / .whois  (user analysis)
 # ─────────────────────────────────────────────────────────────────────────────
-@CipherElite.on(events.NewMessage(pattern=r"\.(?:whois|info)(?:\s|$)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.(?:whois|info)(?:\s|$)"))
 @rishabh()
 async def info_command(event):
     await event.delete()
@@ -155,7 +155,7 @@ async def info_command(event):
 # ─────────────────────────────────────────────────────────────────────────────
 # 👥  .chatinfo  (group / channel analysis)
 # ─────────────────────────────────────────────────────────────────────────────
-@CipherElite.on(events.NewMessage(pattern=r"\.chatinfo(?:\s|$)(.*)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.chatinfo(?:\s|$)(.*)"))
 @rishabh()
 async def chatinfo_command(event):
     await event.delete()

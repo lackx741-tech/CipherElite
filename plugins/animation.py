@@ -4,7 +4,7 @@ import random
 from telethon import events
 from telethon.errors.rpcerrorlist import MessageNotModifiedError
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -27,7 +27,7 @@ async def safe_edit(msg, text):
         pass
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.animate\s+([\s\S]+)$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.animate\s+([\s\S]+)$", outgoing=True))
 @rishabh()
 async def animate_text(event):
     # Grab everything after ".animate "
@@ -52,7 +52,7 @@ async def animate_text(event):
     # Pause on the full text for a moment
     await asyncio.sleep(0.5)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.spinner(?:\s+(\d+))?$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.spinner(?:\s+(\d+))?$", outgoing=True))
 @rishabh()
 async def spinner(event):
     sec = event.pattern_match.group(1)
@@ -74,7 +74,7 @@ async def spinner(event):
     await msg.edit("✅ Done!")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.loveu$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.loveu$", outgoing=True))
 @rishabh()
 async def loveu(event):
     hearts = ["❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "💖", "💗", "💓"]
@@ -85,7 +85,7 @@ async def loveu(event):
         await asyncio.sleep(0.3)
     await safe_edit(msg, "I ❤️ U")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.matrix(?:\s+(\d+))?$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.matrix(?:\s+(\d+))?$", outgoing=True))
 @rishabh()
 async def matrix(event):
     sec = event.pattern_match.group(1)
@@ -102,7 +102,7 @@ async def matrix(event):
         await asyncio.sleep(0.5)
     await safe_edit(msg, "🔚 Matrix end")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.hearts\s+([\s\S]+)$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.hearts\s+([\s\S]+)$", outgoing=True))
 @rishabh()
 async def hearts(event):
     text = event.pattern_match.group(1).strip()
@@ -120,7 +120,7 @@ async def hearts(event):
         await asyncio.sleep(0.6)
     await safe_edit(msg, f"💖 {text} 💖")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.countdown\s+(\d+)$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.countdown\s+(\d+)$", outgoing=True))
 @rishabh()
 async def countdown(event):
     start_n = int(event.pattern_match.group(1))
@@ -131,7 +131,7 @@ async def countdown(event):
     await asyncio.sleep(0.5)
     await safe_edit(msg, "🎉 Boom!")
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.wave\s+([\s\S]+)$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.wave\s+([\s\S]+)$", outgoing=True))
 @rishabh()
 async def wave(event):
     text = event.pattern_match.group(1).strip()

@@ -343,7 +343,7 @@ These are not loaded as userbot plugins, but they are part of the ecosystem:
 | `.help` inline menu fails | `V26_BOT_USERNAME` or bot startup issue | Verify bot username and token |
 | Commands do nothing | You are not owner/sudo | Add your user ID to `SUDO_USERS` |
 | Logs do not arrive | Wrong `LOG_CHAT_ID` | Use a valid private group/channel ID |
-| Updater/install issues | Host lacks permissions/network | retry on a VPS with package install access |
+| Updater/install issues | Host lacks permissions/network | Retry on a VPS with package install access |
 
 ---
 

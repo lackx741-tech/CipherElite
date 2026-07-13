@@ -16,7 +16,7 @@ import json
 from telethon import events
 from utils.utils import CipherElite
 from utils.decorators import rishabh
-from utils.helpers import V26_REPOSITORY_NAME, V26_REPOSITORY_OWNER
+from utils.helpers import V26_REPOSITORY_BRANCH, V26_REPOSITORY_NAME, V26_REPOSITORY_OWNER
 from plugins.bot import add_handler
 
 # Store conversation history per chat
@@ -31,7 +31,7 @@ SYSTEM_PROMPT = """You are **V26 AI**, a specialized AI assistant created for th
 • **Owner/Creator's Telegram:** @thanosceo
 • **Project:** V26 Userbot - Advanced Telegram Userbot
 • **Repository:** https://github.com/lackx741-tech/CipherElite
-• **Primary Repo Branch:** cooking
+• **Primary Repo Branch:** elite
 
 **YOUR PURPOSE:**
 You are integrated into the V26 Telegram Userbot. Your primary focus is helping with V26 features, deployment, and coding. 
@@ -48,7 +48,11 @@ HOWEVER, you are also a general-purpose AI. You MUST answer general everyday que
 8. When asked about deployment or setup for V26: Provide accurate, step-by-step instructions based on V26's actual structure (Telethon, Python 3.8+, VPS deployment, SQLite databases).
 """
 
-async def fetch_repository_data(owner=V26_REPOSITORY_OWNER, repo=V26_REPOSITORY_NAME, branch="elite"):
+async def fetch_repository_data(
+    owner=V26_REPOSITORY_OWNER,
+    repo=V26_REPOSITORY_NAME,
+    branch=V26_REPOSITORY_BRANCH,
+):
     """Fetch repository structure and README from GitHub"""
     try:
         async with aiohttp.ClientSession() as session:
@@ -232,9 +236,9 @@ def init(client):
             
             # Fetch repository data ONLY if question is specifically about V26
             repo_context = ""
-            cipher_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
+            userbot_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
             
-            if any(keyword in query.lower() for keyword in cipher_keywords):
+            if any(keyword in query.lower() for keyword in userbot_keywords):
                 await thinking_msg.edit("🤔 **V26 AI thinking...** (scanning repository...)")
                 print("📚 Fetching V26 repository data...")
                 repo_data = await fetch_repository_data()

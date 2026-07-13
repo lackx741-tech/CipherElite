@@ -27,6 +27,7 @@ PING_PIC = os.getenv("PING_PIC", "https://files.catbox.moe/tocisn.png")
 ALIVE_NAME = os.getenv("ALIVE_NAME", "rishabh")  
 
 # Update Configuration
+# The GitHub repository path remains the current fork path even though the product branding is V26.
 UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/lackx741-tech/CipherElite")
 BRANCH = os.getenv("BRANCH", "elite")
 

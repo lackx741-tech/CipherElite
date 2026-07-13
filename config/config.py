@@ -28,4 +28,5 @@ class Config:
     # Version Info
     VERSION = "2"
     BRANCH = BRANCH
+    # Mirrors the configured fork URL from vars.py for updater compatibility.
     UPSTREAM_REPO = UPSTREAM_REPO

@@ -90,7 +90,7 @@ Protected V26_SESSION returned to user
 
 1. Create a Telegram bot using **@BotFather**
 2. Save the token as `SESSION_BOT_TOKEN`
-3. Get `API_ID` and `API_HASH` from `https://my.telegram.org`
+3. Get `API_ID` and `API_HASH` from [https://my.telegram.org](https://my.telegram.org)
 4. Install dependencies
 5. Run `python3 v26_session_maker_bot.py`
 6. Open the bot in Telegram and use `/generate`
@@ -127,7 +127,7 @@ python3 v26_session_maker_bot.py
 | Problem | Likely cause | Fix |
 |---|---|---|
 | `SESSION_BOT_TOKEN is not set` | Missing env var | Export `SESSION_BOT_TOKEN` first |
-| `API_ID / API_HASH are not set` | Telegram API creds missing | Add both values from my.telegram.org |
+| `API_ID / API_HASH are not set` | Telegram API creds missing | Add both values from [https://my.telegram.org](https://my.telegram.org) |
 | Invalid phone number | Wrong format | Use `+countrycodephonenumber` |
 | Code expired | Delay during OTP step | Restart with `/generate` |
 | 2FA failed | Wrong password | Retry with correct password |

@@ -1,8 +1,14 @@
 from telethon import TelegramClient
 
+from utils.helpers import V26_USERBOT_NAME
+
 CipherElite = None
+V26Userbot = None
+BOT_DISPLAY_NAME = V26_USERBOT_NAME
+
 
 def init_client(client_instance):
-    global CipherElite
+    global CipherElite, V26Userbot
     CipherElite = client_instance
+    V26Userbot = client_instance
     

@@ -11,6 +11,7 @@
 from telethon import TelegramClient, events, Button
 from config.config import Config
 from utils.decorators import rishabh_help
+from utils.helpers import V26_USERBOT_NAME
 import math
 import importlib
 from pathlib import Path
@@ -37,7 +38,7 @@ async def reset_help_timer(event, message_id):
     async def close_menu():
         await asyncio.sleep(60)
         try:
-            await event.edit("<i>⏳ Cipher Elite help session expired.</i>", buttons=None, parse_mode='html')
+            await event.edit(f"<i>⏳ {V26_USERBOT_NAME} help session expired.</i>", buttons=None, parse_mode='html')
         except Exception:
             pass
             
@@ -53,14 +54,14 @@ def add_handler(plugin_name, commands, description=""):
             "commands": commands.copy() if isinstance(commands, list) else [commands],
             "description": description
         }
-        print(f"🎭 Cipher Elite: Registered '{plugin_name}' ({len(CMD_LIST[plugin_name]['commands'])} cmds)")
+        print(f"🎭 {V26_USERBOT_NAME}: Registered '{plugin_name}' ({len(CMD_LIST[plugin_name]['commands'])} cmds)")
 
 def remove_handler(plugin_name):
     """Removes a plugin from the Help Menu (Used by Uninstaller)."""
     try:
         if plugin_name in CMD_LIST:
             del CMD_LIST[plugin_name]
-            print(f"🗑 Cipher Elite: Removed '{plugin_name}' from Help Menu.")
+            print(f"🗑 {V26_USERBOT_NAME}: Removed '{plugin_name}' from Help Menu.")
             return True
     except Exception as e:
         print(f"Error removing handler: {e}")
@@ -120,7 +121,7 @@ async def init_bot(user_client=None):
             total_commands = sum(len(data['commands']) for data in CMD_LIST.values())
             
             text = (
-                "✦ <b>𝐂𝐈𝐏𝐇𝐄𝐑 𝐄𝐋𝐈𝐓𝐄 𝐌𝐄𝐍𝐔</b> ✦\n"
+                "✦ <b>𝐕𝟐𝟔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔</b> ✦\n"
                 "⟡ ═════════════════ ⟡\n"
                 f"❖ <b>Loaded Plugins:</b> <code>{total_plugins}</code>\n"
                 f"❖ <b>Total Commands:</b> <code>{total_commands}</code>\n\n"
@@ -151,7 +152,7 @@ async def init_bot(user_client=None):
                 buttons.append([Button.inline("Next Page ❯", f"help_page_1")])
             
             result = builder.article(
-                title="Cipher Elite Help Menu",
+                title=f"{V26_USERBOT_NAME} Help Menu",
                 text=text,
                 buttons=buttons,
                 parse_mode='html'
@@ -192,7 +193,7 @@ async def init_bot(user_client=None):
                         f" ├ <code>.plugins</code> - View All\n"
                         f" ├ <code>.install</code> - Add Plugin\n"
                         f" └ <code>.uninstall</code> - Remove Plugin\n\n"
-                        f"🤖 <i>Powered by Cipher Elite</i>"
+                        f"🤖 <i>Powered by {V26_USERBOT_NAME}</i>"
                     )
                 else:
                     desc = CMD_LIST[plugin_name]['description']
@@ -226,7 +227,7 @@ async def init_bot(user_client=None):
             total_pages = math.ceil(len(plugin_names) / PLUGINS_PER_PAGE)
             
             text = (
-                "✦ <b>𝐂𝐈𝐏𝐇𝐄𝐑 𝐄𝐋𝐈𝐓𝐄 𝐌𝐄𝐍𝐔</b> ✦\n"
+                "✦ <b>𝐕𝟐𝟔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔</b> ✦\n"
                 "⟡ ═════════════════ ⟡\n"
                 f"❖ <b>Loaded Plugins:</b> <code>{len(plugin_names)}</code>\n"
                 f"❖ <b>Page:</b> <code>{page+1} of {total_pages}</code>\n\n"

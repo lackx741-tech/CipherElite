@@ -17,38 +17,37 @@ from telethon import events
 from utils.utils import CipherElite
 from utils.decorators import rishabh
 from plugins.bot import add_handler
-from vars import ELITE_BOT_USERNAME
 
 # Store conversation history per chat
 conversation_history = {}
 
 # System prompt - Custom identity and behavior
-SYSTEM_PROMPT = """You are **Cipher AI**, a specialized AI assistant created for the **CipherElite Userbot**.
+SYSTEM_PROMPT = """You are **Cipher AI**, a specialized AI assistant created for the **V26 Userbot**.
 
 **ABOUT YOU (ONLY MENTION IF EXPLICITLY ASKED):**
 • **Name:** Cipher AI
 • **Created by:** Rishabh Anand (@rishabhops)
 • **Owner/Creator's Telegram:** @thanosceo
-• **Project:** CipherElite - Advanced Telegram Userbot
-• **Repository:** https://github.com/rishabhops/CipherElite
+• **Project:** V26 Userbot - Advanced Telegram Userbot
+• **Repository:** https://github.com/lackx741-tech/CipherElite
 • **Primary Repo Branch:** cooking
 
 **YOUR PURPOSE:**
-You are integrated into the CipherElite Telegram Userbot. Your primary focus is helping with CipherElite features, deployment, and coding. 
+You are integrated into the V26 Telegram Userbot. Your primary focus is helping with V26 features, deployment, and coding. 
 HOWEVER, you are also a general-purpose AI. You MUST answer general everyday questions (like career advice, education, general knowledge, etc.) naturally and helpfully without restricting yourself to technical topics.
 
 **PERSONALITY & BEHAVIOR:**
 1. ONLY introduce yourself or mention your creators if the user EXPLICITLY asks questions like "who are you", "who made you", or "what is your name". Do NOT inject your identity into normal answers.
-2. Answer whatever the user asks directly. Do not pivot the conversation back to CipherElite unless the user's question is actually about the bot.
+2. Answer whatever the user asks directly. Do not pivot the conversation back to V26 unless the user's question is actually about the bot.
 3. Be helpful, concise, and professional. Act like a natural conversational partner.
 4. Use **bold formatting** for important keywords.
 5. For simple questions: Keep SHORT (1-2 paragraphs).
 6. For complex questions: Provide COMPLETE detailed answers using bullet points and numbered lists.
 7. Never apologize unnecessarily or add disclaimers about being an AI.
-8. When asked about deployment or setup for CipherElite: Provide accurate, step-by-step instructions based on CipherElite's actual structure (Telethon, Python 3.8+, VPS deployment, SQLite databases).
+8. When asked about deployment or setup for V26: Provide accurate, step-by-step instructions based on V26's actual structure (Telethon, Python 3.8+, VPS deployment, SQLite databases).
 """
 
-async def fetch_repository_data(owner="rishabhops", repo="CipherElite", branch="cooking"):
+async def fetch_repository_data(owner="lackx741-tech", repo="CipherElite", branch="elite"):
     """Fetch repository structure and README from GitHub"""
     try:
         async with aiohttp.ClientSession() as session:
@@ -146,7 +145,7 @@ def init(client):
     def estimate_response_type(query):
         """Estimate if question needs short or detailed answer"""
         short_keywords = ["what is", "who is", "when", "where", "how many", "define", "meaning", "your name", "who made", "who created"]
-        complex_keywords = ["how to", "deploy", "setup", "install", "tutorial", "guide", "step", "process", "configure", "build", "create", "write code", "cipherelite", "userbot"]
+        complex_keywords = ["how to", "deploy", "setup", "install", "tutorial", "guide", "step", "process", "configure", "build", "create", "write code", "cipherelite", "v26", "userbot"]
         
         query_lower = query.lower()
         
@@ -210,10 +209,10 @@ def init(client):
                     "**About Me:**\n"
                     "`.ai Who are you?`\n"
                     "`.ai Who made you?`\n\n"
-                    "**CipherElite Help:**\n"
-                    "`.ai How to deploy CipherElite?`\n"
-                    "`.ai What is CipherElite?`\n"
-                    "`.ai CipherElite setup guide`\n\n"
+                    "**V26 Help:**\n"
+                    "`.ai How to deploy V26?`\n"
+                    "`.ai What is V26 Userbot?`\n"
+                    "`.ai V26 setup guide`\n\n"
                     "**General Questions:**\n"
                     "`.ai What is Python?`"
                 )
@@ -230,13 +229,13 @@ def init(client):
             response_type = estimate_response_type(query)
             print(f"📊 Detected response type: {response_type}")
             
-            # Fetch repository data ONLY if question is specifically about CipherElite
+            # Fetch repository data ONLY if question is specifically about V26
             repo_context = ""
-            cipher_keywords = ["cipherelite", "cipher elite", "userbot setup", "userbot deploy", "this bot's repo"]
+            cipher_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
             
             if any(keyword in query.lower() for keyword in cipher_keywords):
                 await thinking_msg.edit("🤔 **Cipher AI thinking...** (scanning repository...)")
-                print("📚 Fetching CipherElite repository data...")
+                print("📚 Fetching V26 repository data...")
                 repo_data = await fetch_repository_data()
                 if repo_data["has_data"]:
                     repo_context = f"README excerpt:\n{repo_data['readme']}\n\nSetup guide:\n{repo_data['setup']}"
@@ -363,7 +362,7 @@ def init(client):
 **Name:** Cipher AI
 **Creator:** Rishabh Anand (@rishabhops)
 **Owner:** @thanosceo
-**Project:** CipherElite Userbot
+**Project:** V26 Userbot
 
 {status_emoji} **Status:** {'Active' if is_enabled else 'Inactive'}
 🔧 **Model:** Gemini 2.5 Flash
@@ -374,7 +373,7 @@ def init(client):
 • Real Chat Memory Integration
 • Custom Identity
 • Repository Data Access
-• CipherElite-aware responses
+• V26-aware responses
 • Intelligent response length
 
 📚 **Commands:**
@@ -383,7 +382,7 @@ def init(client):
 • `.aiinfo` - About me
 
 🔗 **Links:**
-• GitHub: https://github.com/rishabhops/CipherElite
+• GitHub: https://github.com/lackx741-tech/CipherElite
 • Creator: @rishabhops
 • Owner: @thanosceo"""
         

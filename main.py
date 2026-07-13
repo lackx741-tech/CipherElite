@@ -3,7 +3,7 @@ import logging
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 from config.config import Config
-from utils.thanos import thanos_protect
+from utils.v26_security import v26_protect
 from startup.startup import start_bot
 
 logging.basicConfig(
@@ -12,9 +12,9 @@ logging.basicConfig(
 )
 
 # Initialize Telegram client
-eliteses = thanos_protect(Config.STRING_SESSION)
+v26_session = v26_protect(Config.V26_SESSION)
 client = TelegramClient(
-    StringSession(eliteses),
+    StringSession(v26_session),
     Config.API_ID,
     Config.API_HASH
 )

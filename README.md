@@ -1,11 +1,11 @@
-# 匚ɪᴘԋᴇʀ Ξʟɪᴛᴇ USERBOT
+# V26 USERBOT
 
 > 🛑 **STOP PAYING FOR HOSTING!**
-> **CipherElite comes with FREE 24/7 HOSTING via our exclusive bot.**
+> **V26 Userbot comes with FREE 24/7 HOSTING via our exclusive bot.**
 > No Credit Card. No VPS needed. [Deploy in 30 seconds](#-deployment).
 
 <p align="center">
-  <img src="images/cipher.jpg" alt="Cipher Elite Logo" width="300" height="300">
+  <img src="images/cipher.jpg" alt="V26 Userbot Logo" width="300" height="300">
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@
 
 ## 📑 TABLE OF CONTENTS
 - [About](#-about)
-- [Why Cipher Elite?](#-features)
+- [Why V26 Userbot?](#-features)
 - [Deployment](#-deployment)
   - [Method 1: Telegram Deployer (Free)](#-method-1-telegram-deployer-recommended)
   - [Method 2: VPS / Terminal](#-method-2-vps--terminal-manual)
@@ -40,10 +40,10 @@
 
 ## 📖 ABOUT
 
-**CipherElite** isn't just another userbot—it is a **Self-Healing Automation Suite**.
+**V26 Userbot** isn't just another userbot—it is a **Self-Healing Automation Suite**.
 
-Built on **Telethon** by **Rishabh Anand**, it solves the biggest problems in Telegram automation:
-1.  **Security:** Our proprietary `ELITE_SESSION` prevents hackers from stealing your account.
+Built on **Telethon** as a V26-branded CipherElite fork, it solves the biggest problems in Telegram automation:
+1.  **Security:** Our proprietary `V26_SESSION` prevents hackers from stealing your account.
 2.  **Stability:** Our **Smart Plugin Manager** auto-detects and installs missing dependencies (`pip install`) so your bot never crashes.
 3.  **Accessibility:** We provide **Free Hosting** so anyone can use it.
 
@@ -59,7 +59,7 @@ Built on **Telethon** by **Rishabh Anand**, it solves the biggest problems in Te
 | Feature | Description |
 | :--- | :--- |
 | **🧠 Smart Plugin Manager** | **(Exclusive)** Auto-scans plugin code, installs missing libraries/requirements instantly. Zero crashes. |
-| **🛡️ Anti-Hack Session** | Uses `ELITE_SESSION` encryption. If a hacker steals your string, they **cannot** use it on other tools. |
+| **🛡️ Anti-Hack Session** | Uses `V26_SESSION` encryption. If a hacker steals your string, they **cannot** use it on other tools. |
 | **🤖 Native AI** | Integrated AI commands for auto-replies, summaries, and chat assistance. |
 | **⚡ Free Hosting** | We provide a dedicated Deployer Bot that hosts your userbot for free (24/7). |
 | **🎭 Native Fun Plugins** | Custom-written Games, Animations, and 'Magic' commands with **Zero Lag**. |
@@ -81,7 +81,7 @@ Built on **Telethon** by **Rishabh Anand**, it solves the biggest problems in Te
 
 <div align="center">
   <a href="https://www.youtube.com/watch?v=XBHyZyJcv5c">
-    <img src="https://img.youtube.com/vi/XBHyZyJcv5c/maxresdefault.jpg" alt="Watch CipherElite Deployment Tutorial" width="100%">
+    <img src="https://img.youtube.com/vi/XBHyZyJcv5c/maxresdefault.jpg" alt="Watch V26 Userbot Deployment Tutorial" width="100%">
   </a>
   <br>
   <b>▶️ Click here to watch the Tutorial</b>
@@ -103,8 +103,8 @@ Built on **Telethon** by **Rishabh Anand**, it solves the biggest problems in Te
     * *Critical:* You must use **your own forked repo link**, not the original.
 
 2.  **Get Your Session:**
-    * Start [@elite_session_maker_bot](https://t.me/elite_session_maker_bot) on Telegram.
-    * Follow steps to generate your `ELITE_SESSION`.
+    * Start [@v26_session_maker_bot](https://t.me/v26_session_maker_bot) on Telegram.
+    * Follow steps to generate your `V26_SESSION`.
 
 3.  **Deploy:**
     * Go to **[@elitedeployerbot](https://t.me/elitedeployerbot)**.
@@ -130,7 +130,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip git tmux -y
 
 # 2. Clone the Repository
-git clone https://github.com/rishabhops/CipherElite
+git clone https://github.com/lackx741-tech/CipherElite
 cd CipherElite
 
 # 3. Setup Configuration
@@ -162,13 +162,22 @@ python3 main.py
 |---|---|
 | `API_ID` | Get from my.telegram.org |
 | `API_HASH` | Get from my.telegram.org |
-| `ELITE_SESSION` | Required. Get from @elite_session_maker_bot |
+| `V26_SESSION` | Required. Get from @v26_session_maker_bot |
+| `V26_BOT_USERNAME` | Assistant bot username with `@` |
 | `LOG_CHAT_ID` | Private Channel ID for Logs |
 | `SUDO_USERS` | Your User ID (for admin control) |
 
 🛡️ **SECURITY NOTICE:**
-> Cipher Elite uses a Locked Session Protocol. Standard StringSessions (from any other bots) will NOT work.
-> This creates a security layer: Even if your session file is stolen, generic session stealers cannot access your account.
+> V26 Userbot uses a custom locked session protocol. Standard StringSessions, CipherElite sessions, and generic Telethon tools will NOT work with `V26_SESSION`.
+> This creates a security layer: even if your session file is stolen, the embedded V26 salts must be stripped by `v26_protect()` before Telethon can use it.
+
+### 🔐 V26 Session Generation Guide
+
+1. Generate your session only with **[@v26_session_maker_bot](https://t.me/v26_session_maker_bot)**.
+2. The bot inserts two V26-only salts into the real Telethon session at pseudo-random positions.
+3. `utils/v26_security.py` runs `v26_protect()` during startup to remove those salts and recover the usable session.
+4. This design is intentional and **not compatible** with CipherElite / `ELITE_SESSION` strings.
+5. If a V26 session leaks, it is not directly usable in generic Telethon tooling without the V26 decoding logic.
 
 ---
 
@@ -210,5 +219,5 @@ Join our growing community for plugins, help, and updates.
 ---
 
 <p align="center">
-<b>Enjoying Cipher Elite? Please drop a ⭐ Star on the repository!</b>
+<b>Enjoying V26 Userbot? Please drop a ⭐ Star on the repository!</b>
 </p>

@@ -2,6 +2,7 @@ import asyncio
 from telethon import events
 from config.config import Config
 from utils.decorators import rishabh
+from utils.helpers import V26_USERBOT_NAME
 from plugins.bot import CMD_LIST  # Import the command list
 
 client = None
@@ -20,7 +21,7 @@ def init(client_instance):
         ".quickhelp - Show this quick help guide"
     ]
     
-    quickhelp_description = "⚡ Cipher Elite Help System - Complete guide to using the advanced help features"
+    quickhelp_description = f"⚡ {V26_USERBOT_NAME} Help System - Complete guide to using the advanced help features"
     
     # Add to CMD_LIST so it appears in help menu
     CMD_LIST["quickhelp"] = {
@@ -49,7 +50,7 @@ async def register_commands():
             if plugin_name in CMD_LIST:
                 plugin_data = CMD_LIST[plugin_name]
                 
-                help_text = f"✦ <b>𝐂𝐈𝐏𝐇𝐄𝐑 𝐄𝐋𝐈𝐓𝐄 ✦ {plugin_name.upper()}</b>\n"
+                help_text = f"✦ <b>𝐕𝟐𝟔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 ✦ {plugin_name.upper()}</b>\n"
                 help_text += f"⟡ ═════════════════ ⟡\n"
                 help_text += f"<i>{plugin_data['description']}</i>\n\n"
                 help_text += f"❖ <b>Available Commands:</b>\n\n"
@@ -78,7 +79,7 @@ async def register_commands():
                 # Plugin not found - show available plugins
                 available_plugins = list(CMD_LIST.keys())
                 
-                error_text = f"✦ <b>𝐂𝐈𝐏𝐇𝐄𝐑 𝐄𝐋𝐈𝐓𝐄 𝐇𝐄𝐋𝐏</b> ✦\n"
+                error_text = f"✦ <b>𝐕𝟐𝟔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐇𝐄𝐋𝐏</b> ✦\n"
                 error_text += f"⟡ ═════════════════ ⟡\n"
                 error_text += f"⚠️ <b>Plugin '{plugin_name}' not found!</b>\n\n"
                 error_text += f"❖ <b>Available Plugins:</b>\n"
@@ -115,7 +116,7 @@ async def register_commands():
                     msg = await event.client.get_messages(event.chat_id, ids=help_msg.id)
                     # If edit_date is None, the user hasn't clicked any buttons yet
                     if msg and msg.edit_date is None:
-                        await msg.edit("<i>⏳ Cipher Elite help session expired.</i>", parse_mode='html', buttons=None)
+                        await msg.edit(f"<i>⏳ {V26_USERBOT_NAME} help session expired.</i>", parse_mode='html', buttons=None)
                 except Exception:
                     pass
             
@@ -137,7 +138,7 @@ async def register_commands():
             total_plugins = len(CMD_LIST)
             total_commands = sum(len(data['commands']) for data in CMD_LIST.values())
             
-            plugins_text = f"✦ <b>𝐂𝐈𝐏𝐇𝐄𝐑 𝐄𝐋𝐈𝐓𝐄 𝐏𝐋𝐔𝐆𝐈𝐍𝐒</b> ✦\n"
+            plugins_text = f"✦ <b>𝐕𝟐𝟔 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐏𝐋𝐔𝐆𝐈𝐍𝐒</b> ✦\n"
             plugins_text += f"⟡ ═════════════════ ⟡\n"
             plugins_text += f"⚡ <b>Total Plugins:</b> <code>{total_plugins}</code>\n"
             plugins_text += f"⚙️ <b>Total Commands:</b> <code>{total_commands}</code>\n\n"

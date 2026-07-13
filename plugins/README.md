@@ -1,11 +1,11 @@
 
-# 🎭 CipherElite Plugin Development Guide
+# 🎭 V26 Plugin Development Guide
 
 ## Basic Plugin Structure
 
 ```
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -17,7 +17,7 @@ def init(client_instance):
     add_handler("plugin_name", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.command\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.command\s+(.+)"))
     @rishabh()
     async def command_handler(event):
         try:
@@ -32,7 +32,7 @@ async def register_commands():
 ### 1. Imports
 ```
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 ```
@@ -50,12 +50,12 @@ def init(client_instance):
 ### 3. Command Handler
 ```
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.cmd\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.cmd\s+(.+)"))
     @rishabh()
     async def handler(event):
         try:
             # Your logic here
-            await event.reply("🎭 **Cipher Elite Result**\n\n✅ Success")
+            await event.reply("🎭 **V26 Userbot Result**\n\n✅ Success")
         except Exception as e:
             await event.reply(f"❌ **Error:** {str(e)}")
 ```
@@ -80,12 +80,12 @@ pattern=r"\.command\s+(\w+)\s*(.*)"
 
 ```
 # Success message
-await event.reply("🎭 **Cipher Elite Success**\n\n"
+await event.reply("🎭 **V26 Userbot Success**\n\n"
                  "✅ **Result:** Your result here\n"
-                 "🤖 **Powered by Cipher Elite**")
+                 "🤖 **Powered by V26 Userbot**")
 
 # Error message
-await event.reply(f"🎭 **Cipher Elite Error**\n\n"
+await event.reply(f"🎭 **V26 Userbot Error**\n\n"
                  f"❌ **Error:** {str(e)}\n"
                  f"💡 **Try again with correct parameters**")
 
@@ -98,34 +98,34 @@ await status.edit("✅ **Complete!**")
 
 ```
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
 def init(client_instance):
     commands = [
-        ".reverse <text> - Reverse text with Cipher Elite",
+        ".reverse <text> - Reverse text with V26 Userbot",
         ".upper <text> - Convert text to uppercase"
     ]
     description = "🎭 Text Tools - Basic text manipulation"
     add_handler("texttools", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.reverse\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.reverse\s+(.+)"))
     @rishabh()
     async def reverse_text(event):
         try:
             text = event.pattern_match.group(1).strip()
             result = text[::-1]
             
-            await event.reply("🎭 **Cipher Elite Text Reverser**\n\n"
+            await event.reply("🎭 **V26 Userbot Text Reverser**\n\n"
                             f"📝 **Original:** `{text}`\n"
                             f"🔄 **Reversed:** `{result}`\n"
                             f"✅ **Success!**")
         except Exception as e:
             await event.reply(f"❌ **Error:** {str(e)}")
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.upper\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.upper\s+(.+)"))
     @rishabh()
     async def upper_text(event):
         try:
@@ -148,7 +148,7 @@ async def register_commands():
 
 ### ✅ Best Practices
 - [ ] Short plugin name for help menu button
-- [ ] Cipher Elite branding in messages
+- [ ] V26 Userbot branding in messages
 - [ ] Clear parameter descriptions
 - [ ] Input validation
 

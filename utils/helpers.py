@@ -1,5 +1,14 @@
 from telethon.tl.functions.users import GetFullUserRequest
 
+V26_USERBOT_NAME = "V26 Userbot"
+V26_REPOSITORY_URL = "https://github.com/lackx741-tech/CipherElite"
+# Product branding is V26, while the current fork still lives under the CipherElite repository path.
+V26_REPOSITORY_OWNER = "lackx741-tech"
+V26_REPOSITORY_NAME = "CipherElite"
+V26_REPOSITORY_BRANCH = "elite"
+V26_SESSION_ENV_VAR = "V26_SESSION"
+V26_SESSION_BOT_USERNAME = "@v26_session_maker_bot"
+
 async def get_user_from_event(event):
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()

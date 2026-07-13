@@ -1,16 +1,21 @@
 from vars import *
+from utils.helpers import V26_USERBOT_NAME
 
 class Config:
     # Core Settings
     API_ID = API_ID
     API_HASH = API_HASH
-    STRING_SESSION = ELITE_SESSION
+    V26_SESSION = V26_SESSION
     
     # Bot Configuration
-    BOT_PREFIX = ELITE_BOT_PREFIX
-    BOT_NAME = "Cipher Elite"
+    V26_BOT_PREFIX = V26_BOT_PREFIX
+    # Backward-compatible alias used by existing plugins.
+    BOT_PREFIX = V26_BOT_PREFIX
+    BOT_NAME = V26_USERBOT_NAME
     BOT_TOKEN = BOT_TOKEN
-    TG_BOT_USERNAME = ELITE_BOT_USERNAME
+    V26_BOT_USERNAME = V26_BOT_USERNAME
+    # Backward-compatible alias used by existing plugins.
+    TG_BOT_USERNAME = V26_BOT_USERNAME
     
     # Access Control
     SUDO_USERS = SUDO_USERS
@@ -23,6 +28,5 @@ class Config:
     # Version Info
     VERSION = "2"
     BRANCH = BRANCH
-    UPSTREAM_REPO = "https://github.com/rishabhops/CipherElite"
-
-
+    # Mirrors the configured fork URL from vars.py for updater compatibility.
+    UPSTREAM_REPO = UPSTREAM_REPO

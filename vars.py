@@ -7,12 +7,12 @@ load_dotenv()
 # api Configuration
 API_ID = int(os.getenv("API_ID", "10248430"))  
 API_HASH = os.getenv("API_HASH", "42396a6ff14a569b9d59931643897d0d")  
-#Please generate a session using @elite_session_maker_bot else your session not working 
-ELITE_SESSION = os.getenv("ELITE_SESSION", "INVALID_SESSION")  
+# Please generate a session using @v26_session_maker_bot else your session will not work
+V26_SESSION = os.getenv("V26_SESSION", "INVALID_SESSION")  
 # Bot Settings
-ELITE_BOT_PREFIX = os.getenv("ELITE_BOT_PREFIX", ".")
+V26_BOT_PREFIX = os.getenv("V26_BOT_PREFIX", ".")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "INVALID_BOT_TOKEN")
-ELITE_BOT_USERNAME = os.getenv("ELITE_BOT_USERNAME", "@InvalidBotUsername")
+V26_BOT_USERNAME = os.getenv("V26_BOT_USERNAME", "@InvalidBotUsername")
 
 # Access Control
 SUDO_USERS = [int(x) for x in os.getenv("SUDO_USERS", "5470956337").split(",") if x.strip()]
@@ -27,7 +27,8 @@ PING_PIC = os.getenv("PING_PIC", "https://files.catbox.moe/tocisn.png")
 ALIVE_NAME = os.getenv("ALIVE_NAME", "rishabh")  
 
 # Update Configuration
-UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/rishabhops/CipherElite")
+# The GitHub repository path remains the current fork path even though the product branding is V26.
+UPSTREAM_REPO = os.getenv("UPSTREAM_REPO", "https://github.com/lackx741-tech/CipherElite")
 BRANCH = os.getenv("BRANCH", "elite")
 
 # for  debugging dont edit this
@@ -35,12 +36,12 @@ if API_ID == 0:
     print("Warning: API_ID is not set. Please update .env with a valid API_ID.")
 if API_HASH == "INVALID_API_HASH":
     print("Warning: API_HASH is not set. Please update .env with a valid API_HASH.")
-if ELITE_SESSION == "INVALID_SESSION":
-    print("Warning: ELITE_SESSION is not set. Please generate a session using @elite_session_maker_bot.")
+if V26_SESSION == "INVALID_SESSION":
+    print("Warning: V26_SESSION is not set. Please generate a session using @v26_session_maker_bot.")
 if BOT_TOKEN == "INVALID_BOT_TOKEN":
     print("Warning: BOT_TOKEN is not set. Please update .env with a valid bot token from @BotFather.")
-if ELITE_BOT_USERNAME == "@InvalidBotUsername":
-    print("Warning: ELITE_BOT_USERNAME is not set. Please update .env with your bot username.")
+if V26_BOT_USERNAME == "@InvalidBotUsername":
+    print("Warning: V26_BOT_USERNAME is not set. Please update .env with your bot username.")
 if SUDO_USERS == [0]:
     print("Warning: SUDO_USERS is not set. Please update .env with valid Telegram user ID(s).")
 if LOG_CHAT_ID == 0:

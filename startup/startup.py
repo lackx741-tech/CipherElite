@@ -14,7 +14,12 @@ from telethon.tl.functions.photos import UploadProfilePhotoRequest, DeletePhotos
 from telethon.tl.functions.account import UpdateProfileRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
+from config.config import Config
 from plugins.bot import init_bot
+from utils.helpers import (
+    V26_SESSION_BOT_USERNAME,
+    V26_USERBOT_NAME,
+)
 from utils.utils import init_client
 
 async def load_plugins(client):
@@ -104,7 +109,7 @@ async def display_startup_message(client, plugins, bot_plugins):
     user_name = (await client.get_me()).first_name
     banner = f"""
 \033[1;36m=====================
- CIPHER ELITE USERBOT
+ {V26_USERBOT_NAME.upper()}
 =====================
 \033[1;32mStatus   : ONLINE
 Python   : v{system_info["python"]}
@@ -114,7 +119,7 @@ Plugins  : {len(plugins)} UB | {len(bot_plugins)} Bot
 User     : {user_name}
 Started  : {system_info["uptime"]}
 \033[1;36m=====================
-\033[1;33mElite Power Activated!\033[0m
+\033[1;33mV26 Power Activated!\033[0m
 """
     print(banner)
     return system_info
@@ -127,12 +132,12 @@ async def configure_bot_via_botfather(user_client, bot_username):
     bot_name = f"{user_first_name}'s Assistant"
     bot_bio = (
         f"🤖 Personal Assistant Bot for {user_first_name}\n\n"
-        "🔰 Cipher Elite Userbot Assistant\n"
-        "⚡ Powered by thanospros\n"
+        f"🔰 {V26_USERBOT_NAME} Assistant\n"
+        "⚡ Powered by V26\n"
         "🛡️ Advanced Automation & Management\n\n"
-        "🔗 Support: @thanosprosss"
+        f"🔗 Session Bot: {V26_SESSION_BOT_USERNAME}"
     )
-    bot_about = f"🤖 Assistant for {user_first_name} | Cipher Elite | @thanosprosss"
+    bot_about = f"🤖 Assistant for {user_first_name} | {V26_USERBOT_NAME} | {V26_SESSION_BOT_USERNAME}"
     
     desired_commands = {
         "start": "Start the bot",
@@ -296,7 +301,7 @@ async def ensure_bot_in_group(bot_client, user_client, log_chat_id):
                     channel=chat,
                     user_id=bot_username if bot_username else bot_id,
                     admin_rights=admin_rights,
-                    rank="Cipher Elite Bot"
+                    rank="V26 Bot"
                 ))
                 return True
             except Exception as e:
@@ -320,7 +325,7 @@ async def send_startup_message(bot_client, user_client, plugins, bot_plugins, sy
         
         message = (
             "=====================\n"
-            "**CIPHER ELITE USERBOT**\n"
+            "**V26 USERBOT**\n"
             "=====================\n"
             f"**Status**: ONLINE\n"
             f"**User**: {user.first_name} (`{user.id}`)\n"
@@ -331,7 +336,7 @@ async def send_startup_message(bot_client, user_client, plugins, bot_plugins, sy
             f"**Plugins**: {len(plugins)} UB | {len(bot_plugins)} Bot\n"
             f"**Started**: {system_info['uptime']}\n"
             "=====================\n"
-            "**Elite Power Activated!**"
+            "**V26 Power Activated!**"
         )
         
         buttons = [[Button.url("Support", "https://t.me/thanosprosss")]]
@@ -353,16 +358,16 @@ async def send_startup_message(bot_client, user_client, plugins, bot_plugins, sy
 
 async def start_bot(client):
     print("\n\033[1;36m==================================================")
-    print("      Initializing CIPHER ELITE USERBOT")
+    print(f"      Initializing {V26_USERBOT_NAME.upper()}")
     print("==================================================\033[0m\n")
 
     required_configs = [
-        (client.api_id, "API_ID"),
-        (client.api_hash, "API_HASH"),
-        (client.session, "STRING_SESSION")
+        (Config.API_ID, "API_ID"),
+        (Config.API_HASH, "API_HASH"),
+        (Config.V26_SESSION, "V26_SESSION")
     ]
     for value, name in required_configs:
-        if not value:
+        if not value or value == "INVALID_SESSION":
             raise ValueError(f"Configuration error: {name} is not set")
 
     await client.start()
@@ -403,11 +408,10 @@ async def start_bot(client):
 
     system_info = await display_startup_message(client, plugins, bot_plugins)
     
-    from config.config import Config
     if bot:
         await send_startup_message(bot, client, plugins, bot_plugins, system_info, Config)
 
-    print("\033[1;32mCipher Elite is ready and serving!\033[0m")
+    print(f"\033[1;32m{V26_USERBOT_NAME} is ready and serving!\033[0m")
     await asyncio.gather(
         client.run_until_disconnected(),
         bot.run_until_disconnected() if bot else asyncio.sleep(float('inf'))

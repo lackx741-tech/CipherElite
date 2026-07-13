@@ -4,6 +4,7 @@ from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 from telethon.errors import UserNotParticipantError, ChatAdminRequiredError
 from config.config import Config
+from utils.helpers import V26_REPOSITORY_URL, V26_USERBOT_NAME
 
 # ==========================================
 # HELPER FUNCTION
@@ -78,7 +79,7 @@ def authorized_users_only(func=None):
                 pass
             
             # 🎭 Deny access
-            await event.reply("🎭 **Cipher Elite Access Denied**\n\n"
+            await event.reply(f"🎭 **{V26_USERBOT_NAME} Access Denied**\n\n"
                              "❌ **This command is restricted to admins only!**\n"
                              "🛡️ **Required:** Admin privileges, Sudo access, or Bot Owner")
             return
@@ -123,9 +124,9 @@ def rishabh_help(func=None):
             
             if not await is_owner_or_sudo(event):
                 error_msg = (
-                    "🎭 **Cipher Elite Access Restricted!**\n\n"
-                    "🔒 **Deploy your own Cipher Elite Bot:**\n"
-                    "https://github.com/rishabhops/CipherElite\n\n"
+                    f"🎭 **{V26_USERBOT_NAME} Access Restricted!**\n\n"
+                    f"🔒 **Deploy your own {V26_USERBOT_NAME}:**\n"
+                    f"{V26_REPOSITORY_URL}\n\n"
                     "⚡ **Unauthorized access denied**"
                 )
                 

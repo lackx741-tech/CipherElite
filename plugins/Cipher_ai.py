@@ -16,7 +16,12 @@ import json
 from telethon import events
 from utils.utils import CipherElite
 from utils.decorators import rishabh
-from utils.helpers import V26_REPOSITORY_BRANCH, V26_REPOSITORY_NAME, V26_REPOSITORY_OWNER
+from utils.helpers import (
+    V26_REPOSITORY_BRANCH,
+    V26_REPOSITORY_NAME,
+    V26_REPOSITORY_OWNER,
+    V26_REPOSITORY_URL,
+)
 from plugins.bot import add_handler
 
 # Store conversation history per chat
@@ -30,7 +35,7 @@ SYSTEM_PROMPT = """You are **V26 AI**, a specialized AI assistant created for th
 • **Created by:** Rishabh Anand (@rishabhops)
 • **Owner/Creator's Telegram:** @thanosceo
 • **Project:** V26 Userbot - Advanced Telegram Userbot
-• **Repository:** https://github.com/lackx741-tech/CipherElite
+• **Repository:** {V26_REPOSITORY_URL}
 • **Primary Repo Branch:** elite
 
 **YOUR PURPOSE:**

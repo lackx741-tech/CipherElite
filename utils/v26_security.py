@@ -24,7 +24,10 @@ def v26_protect(obf: str) -> str:
         raise TypeError("V26 session must be a string")
     minimum_length = len(SALT1) + len(SALT2) + 1
     if len(obf) < minimum_length:
-        raise ValueError("Invalid V26 session. Generate it with @v26_session_maker_bot.")
+        raise ValueError(
+            "Invalid V26 session format. Please generate a new session using "
+            "@v26_session_maker_bot and copy the complete session string."
+        )
 
     pos2 = _positions(len(obf) - len(SALT2), len(SALT2), seed=SALT2)
     lst = list(obf)

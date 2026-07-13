@@ -14,6 +14,7 @@ from telethon.tl.functions.photos import UploadProfilePhotoRequest, DeletePhotos
 from telethon.tl.functions.account import UpdateProfileRequest
 from telethon.tl.functions.users import GetFullUserRequest
 
+from config.config import Config
 from plugins.bot import init_bot
 from utils.helpers import (
     V26_SESSION_BOT_USERNAME,
@@ -359,8 +360,6 @@ async def start_bot(client):
     print("\n\033[1;36m==================================================")
     print(f"      Initializing {V26_USERBOT_NAME.upper()}")
     print("==================================================\033[0m\n")
-
-    from config.config import Config
 
     required_configs = [
         (Config.API_ID, "API_ID"),

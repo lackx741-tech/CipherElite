@@ -130,7 +130,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip git tmux -y
 
 # 2. Clone the Repository
-git clone https://github.com/lackx741-tech/CipherElite
+git clone https://github.com/YOUR_USERNAME/CipherElite
 cd CipherElite
 
 # 3. Setup Configuration

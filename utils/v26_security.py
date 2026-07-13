@@ -15,6 +15,7 @@ if len(SALT1) != 10 or len(SALT2) != 15:
 def _positions(length: int, count: int, seed: str) -> List[int]:
     if length < 0 or count <= 0:
         raise ValueError("invalid V26 session layout")
+    # `length` is the real payload length before salts are inserted.
     rng = random.Random(seed)
     return sorted(rng.sample(range(length + count), count))
 

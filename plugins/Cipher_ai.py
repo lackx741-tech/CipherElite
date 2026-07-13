@@ -28,7 +28,7 @@ from plugins.bot import add_handler
 conversation_history = {}
 
 # System prompt - Custom identity and behavior
-SYSTEM_PROMPT = """You are **V26 AI**, a specialized AI assistant created for the **V26 Userbot**.
+SYSTEM_PROMPT = f"""You are **V26 AI**, a specialized AI assistant created for the **V26 Userbot**.
 
 **ABOUT YOU (ONLY MENTION IF EXPLICITLY ASKED):**
 • **Name:** V26 AI
@@ -241,6 +241,7 @@ def init(client):
             
             # Fetch repository data ONLY if question is specifically about V26
             repo_context = ""
+            # Keep legacy CipherElite terms during the V26 migration so old phrasing still resolves repo help.
             userbot_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
             
             if any(keyword in query.lower() for keyword in userbot_keywords):

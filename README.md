@@ -130,8 +130,8 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip git tmux -y
 
 # 2. Clone the Repository
-git clone https://github.com/YOUR_USERNAME/CipherElite
-cd CipherElite
+git clone https://github.com/YOUR_USERNAME/YOUR_FORK_REPO
+cd YOUR_FORK_REPO
 
 # 3. Setup Configuration
 # Copy the sample env file to a real .env file
@@ -170,6 +170,7 @@ python3 main.py
 🛡️ **SECURITY NOTICE:**
 > V26 Userbot uses a custom locked session protocol. Standard StringSessions, CipherElite sessions, and generic Telethon tools will NOT work with `V26_SESSION`.
 > This creates a security layer: even if your session file is stolen, the embedded V26 salts must be stripped by `v26_protect()` before Telethon can use it.
+> Existing CipherElite users must generate a brand-new `V26_SESSION` with `@v26_session_maker_bot`; there is no direct migration tool from older deployments.
 
 ### 🔐 V26 Session Generation Guide
 

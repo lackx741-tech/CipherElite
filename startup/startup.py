@@ -367,7 +367,7 @@ async def start_bot(client):
         (Config.V26_SESSION, "V26_SESSION")
     ]
     for value, name in required_configs:
-        if not value:
+        if not value or value == "INVALID_SESSION":
             raise ValueError(f"Configuration error: {name} is not set")
 
     await client.start()

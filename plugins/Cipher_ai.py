@@ -22,10 +22,10 @@ from plugins.bot import add_handler
 conversation_history = {}
 
 # System prompt - Custom identity and behavior
-SYSTEM_PROMPT = """You are **Cipher AI**, a specialized AI assistant created for the **V26 Userbot**.
+SYSTEM_PROMPT = """You are **V26 AI**, a specialized AI assistant created for the **V26 Userbot**.
 
 **ABOUT YOU (ONLY MENTION IF EXPLICITLY ASKED):**
-• **Name:** Cipher AI
+• **Name:** V26 AI
 • **Created by:** Rishabh Anand (@rishabhops)
 • **Owner/Creator's Telegram:** @thanosceo
 • **Project:** V26 Userbot - Advanced Telegram Userbot
@@ -88,7 +88,7 @@ async def fetch_repository_data(owner="lackx741-tech", repo="CipherElite", branc
 
 
 def init(client):
-    """Initialize the Cipher AI plugin"""
+    """Initialize the V26 AI plugin"""
     try:
         from plugins.ai_setup import ai_config  # Import centralized config
     except ImportError:
@@ -96,11 +96,11 @@ def init(client):
         return False
     
     commands = [
-        f".ai <question>   — Ask Cipher AI a question",
+        f".ai <question>   — Ask V26 AI a question",
         f".aiclear         — Clear conversation history",
         f".aiinfo          — Show AI info"
     ]
-    add_handler("cipher_ai", commands, "Cipher AI - Powered by Google Gemini with Repo Access")
+    add_handler("cipher_ai", commands, "V26 AI - Powered by Google Gemini with Repo Access")
     
     async def make_ai_request(messages, repo_context=""):
         """Make request to Google Generative AI using native chat history"""
@@ -205,7 +205,7 @@ def init(client):
             query = event.pattern_match.group(1)
             if not query:
                 await event.reply(
-                    "❓ **How to use Cipher AI:**\n\n"
+                    "❓ **How to use V26 AI:**\n\n"
                     "**About Me:**\n"
                     "`.ai Who are you?`\n"
                     "`.ai Who made you?`\n\n"
@@ -222,7 +222,7 @@ def init(client):
                 await event.reply("📝 **Query too long!** Max 2000 characters.")
                 return
             
-            thinking_msg = await event.reply("🤔 **Cipher AI thinking...**")
+            thinking_msg = await event.reply("🤔 **V26 AI thinking...**")
             print(f"🤖 Processing AI query: {query[:50]}...")
             
             # Estimate response type
@@ -234,7 +234,7 @@ def init(client):
             cipher_keywords = ["cipherelite", "cipher elite", "v26", "v26 userbot", "userbot setup", "userbot deploy", "this bot's repo"]
             
             if any(keyword in query.lower() for keyword in cipher_keywords):
-                await thinking_msg.edit("🤔 **Cipher AI thinking...** (scanning repository...)")
+                await thinking_msg.edit("🤔 **V26 AI thinking...** (scanning repository...)")
                 print("📚 Fetching V26 repository data...")
                 repo_data = await fetch_repository_data()
                 if repo_data["has_data"]:
@@ -357,9 +357,9 @@ def init(client):
         is_enabled = ai_config.is_enabled()
         status_emoji = "✅" if is_enabled else "❌"
         
-        info = f"""🤖 **Cipher AI - About Me**
+        info = f"""🤖 **V26 AI - About Me**
 
-**Name:** Cipher AI
+**Name:** V26 AI
 **Creator:** Rishabh Anand (@rishabhops)
 **Owner:** @thanosceo
 **Project:** V26 Userbot
@@ -388,5 +388,5 @@ def init(client):
         
         await event.reply(info)
     
-    print("✅ Cipher AI Plugin initialized (With Real Chat Memory)")
+    print("✅ V26 AI Plugin initialized (With Real Chat Memory)")
     return True

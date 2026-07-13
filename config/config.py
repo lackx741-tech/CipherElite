@@ -6,7 +6,6 @@ class Config:
     API_ID = API_ID
     API_HASH = API_HASH
     V26_SESSION = V26_SESSION
-    STRING_SESSION = V26_SESSION
     
     # Bot Configuration
     V26_BOT_PREFIX = V26_BOT_PREFIX
@@ -28,4 +27,3 @@ class Config:
     VERSION = "2"
     BRANCH = BRANCH
     UPSTREAM_REPO = UPSTREAM_REPO
-

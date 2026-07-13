@@ -174,10 +174,10 @@ python3 main.py
 ### 🔐 V26 Session Generation Guide
 
 1. Generate your session only with **[@v26_session_maker_bot](https://t.me/v26_session_maker_bot)**.
-2. The bot inserts two V26-only salts into the real Telethon session at pseudo-random positions.
-3. `utils/v26_security.py` runs `v26_protect()` during startup to remove those salts and recover the usable session.
+2. The session bot wraps your real Telethon session with a V26-only protection layer before you store it.
+3. V26 removes that protection internally at startup with `v26_protect()` and then hands the recovered session to Telethon.
 4. This design is intentional and **not compatible** with CipherElite / `ELITE_SESSION` strings.
-5. If a V26 session leaks, it is not directly usable in generic Telethon tooling without the V26 decoding logic.
+5. If a V26 session leaks, it is not directly usable in generic Telethon tooling without V26's internal protection logic.
 
 ---
 

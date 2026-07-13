@@ -13,22 +13,26 @@ if len(SALT1) != 10 or len(SALT2) != 15:
 
 
 def _positions(length: int, count: int, seed: str) -> List[int]:
+    if length < 0 or count <= 0:
+        raise ValueError("invalid V26 session layout")
     rng = random.Random(seed)
     return sorted(rng.sample(range(length + count), count))
 
 
 def v26_protect(obf: str) -> str:
+    if not isinstance(obf, str):
+        raise TypeError("V26 session must be a string")
     if len(obf) <= len(SALT1) + len(SALT2):
-        return obf
+        raise ValueError("Invalid V26 session. Generate it with @v26_session_maker_bot.")
 
     pos2 = _positions(len(obf) - len(SALT2), len(SALT2), seed=SALT2)
     lst = list(obf)
-    for idx in sorted(pos2, reverse=True):
+    for idx in reversed(pos2):
         lst.pop(idx)
     s1 = "".join(lst)
 
     pos1 = _positions(len(s1) - len(SALT1), len(SALT1), seed=SALT1)
     lst = list(s1)
-    for idx in sorted(pos1, reverse=True):
+    for idx in reversed(pos1):
         lst.pop(idx)
     return "".join(lst)

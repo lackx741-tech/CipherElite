@@ -115,7 +115,7 @@ Protected V26_SESSION returned to user
 ### How to run it
 
 ```bash
-cd /home/runner/work/CipherElite/CipherElite
+cd /path/to/CipherElite
 export SESSION_BOT_TOKEN="123456:session-bot-token"
 export API_ID="12345678"
 export API_HASH="your_api_hash"
@@ -266,7 +266,7 @@ V26 protects sensitive operations with decorators in `utils/decorators.py`:
 
 #### Communication (7)
 
-- `autoforword`
+- `autoforword` *(auto-forward plugin)*
 - `broadcast`
 - `echo`
 - `raid`
@@ -428,7 +428,7 @@ Integration flow:
 #### 1) Session Maker Bot Setup
 
 ```bash
-cd /home/runner/work/CipherElite/CipherElite
+cd /path/to/CipherElite
 export SESSION_BOT_TOKEN="your_session_bot_token"
 export API_ID="your_api_id"
 export API_HASH="your_api_hash"
@@ -438,7 +438,7 @@ python3 v26_session_maker_bot.py
 #### 2) V26 Userbot Setup
 
 ```bash
-cd /home/runner/work/CipherElite/CipherElite
+cd /path/to/CipherElite
 cp sample.env .env
 # edit .env with your real values
 pip3 install -r requirements.txt

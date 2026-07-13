@@ -5,18 +5,18 @@
 > No Credit Card. No VPS needed. [Deploy in 30 seconds](#-deployment).
 
 <p align="center">
-  <img src="images/cipher.jpg" alt="V26 Userbot Logo" width="300" height="300">
+  <img src="images/v26_logo.png" alt="V26 Sacred Fire Logo" width="320" height="320">
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?color=F77247&width=450&lines=V26+Userbot;Anti-Hack+Session+Protection;Native+AI+%7C+Smart+Plugins+%7C+Secure;Deploy+Free+in+30+Seconds" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?color=F77247&center=true&vCenter=true&width=540&lines=V26;Sacred+Fire+Protocol;Anonymous+Geometry+Core;Secure+Telegram+Automation" alt="V26 typing banner" />
 </p>
 
 <p align="center">
-    <a href="https://github.com/lackx741-tech/V26Userbot/stargazers"><img src="https://img.shields.io/github/stars/lackx741-tech/V26Userbot?label=Stars&style=for-the-badge&logo=github&color=F10070" alt="GitHub Stars"></a>
-    <a href="https://github.com/lackx741-tech/V26Userbot/network/members"><img src="https://img.shields.io/github/forks/lackx741-tech/V26Userbot?label=Forks&style=for-the-badge&logo=github&color=F10070" alt="GitHub Forks"></a>
-    <a href="https://github.com/lackx741-tech/V26Userbot/issues"><img src="https://img.shields.io/github/issues/lackx741-tech/V26Userbot?label=Issues&style=for-the-badge&logo=github&color=F10070" alt="GitHub Issues"></a>
-    <a href="https://github.com/lackx741-tech/V26Userbot/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=github" alt="License" /></a>
+    <a href="https://github.com/lackx741-tech/CipherElite/stargazers"><img src="https://img.shields.io/github/stars/lackx741-tech/CipherElite?label=Stars&style=for-the-badge&logo=github&color=F10070" alt="GitHub Stars"></a>
+    <a href="https://github.com/lackx741-tech/CipherElite/network/members"><img src="https://img.shields.io/github/forks/lackx741-tech/CipherElite?label=Forks&style=for-the-badge&logo=github&color=F10070" alt="GitHub Forks"></a>
+    <a href="https://github.com/lackx741-tech/CipherElite/issues"><img src="https://img.shields.io/github/issues/lackx741-tech/CipherElite?label=Issues&style=for-the-badge&logo=github&color=F10070" alt="GitHub Issues"></a>
+    <a href="https://github.com/lackx741-tech/CipherElite/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=github" alt="License" /></a>
 </p>
 
 <p align="center">
@@ -101,8 +101,8 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip git tmux -y
 
 # 2. Clone the Repository
-git clone https://github.com/lackx741-tech/V26Userbot
-cd V26Userbot
+git clone https://github.com/lackx741-tech/CipherElite
+cd CipherElite
 
 # 3. Setup Configuration
 # Copy the sample env file to a real .env file

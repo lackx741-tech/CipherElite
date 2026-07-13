@@ -1,7 +1,7 @@
 # update on: 09/07/2026
 
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 import os
@@ -9,8 +9,8 @@ import requests
 from io import BytesIO
 
 # ─────────────── CONFIG ───────────────
-LOGO_URL = "https://raw.githubusercontent.com/rishabhops/CipherElite/elite/images/cipher.jpg"
-CHANNEL_LINK = "https://t.me/cipherelite_support"
+LOGO_URL = "https://files.catbox.moe/tocisn.png"
+CHANNEL_LINK = "https://t.me/v26userbot"
 
 def init(client_instance):
     commands = [
@@ -31,7 +31,7 @@ def get_thumb():
 
 async def register_commands():
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.send\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.send\s+(.+)"))
     @rishabh()
     async def send_plugin(event):
         try:
@@ -59,10 +59,10 @@ async def register_commands():
 
             # Build caption
             caption = (
-                "🎭 **Cipher Elite Plugin Sender**\n\n"
+                "🎭 **V26 Userbot Plugin Sender**\n\n"
                 f"📦 **• Plugin name ≈** `{plugin_name}.py`\n"
                 f"👤 **• Uploaded by ≈** {user_mention}\n\n"
-                f"⚡ **[Powered by Cipher Elite]({CHANNEL_LINK})** ⚡"
+                f"⚡ **[Powered by V26 Userbot]({CHANNEL_LINK})** ⚡"
             )
 
             # Get thumbnail

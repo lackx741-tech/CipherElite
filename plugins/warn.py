@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    warn
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -13,7 +13,7 @@ from pathlib import Path
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -43,7 +43,7 @@ def init(client_instance):
     add_handler("warn", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.warn"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.warn"))
     @rishabh()
     async def warn(event):
         if not event.is_reply:
@@ -122,7 +122,7 @@ async def register_commands():
         
         await event.reply(msg)
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.resetwarn"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.resetwarn"))
     @rishabh()
     async def resetwarn(event):
         if not event.is_reply:
@@ -150,7 +150,7 @@ async def register_commands():
         
         await event.reply(f"✅ All warnings reset for {user_name}!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.warns"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.warns"))
     @rishabh()
     async def warns(event):
         if not event.is_reply:
@@ -184,7 +184,7 @@ async def register_commands():
         
         await event.reply(msg)
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.setwarn"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setwarn"))
     @rishabh()
     async def setwarn(event):
         text = event.text.split(maxsplit=1)

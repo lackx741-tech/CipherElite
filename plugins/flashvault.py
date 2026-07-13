@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    flashvault.py (Anti-View-Once Media Saver)
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -24,7 +20,7 @@ from telethon import events
 from telethon.utils import get_display_name, get_peer_id
 
 from config.config import Config
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh
 
@@ -70,7 +66,7 @@ def init(client_instance):
 # COMMAND HANDLERS
 # ==========================================
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.flash(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.flash(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def toggle_global_flash(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
@@ -91,7 +87,7 @@ async def toggle_global_flash(event):
         await event.reply("❌ **Syntax Error:** Use `.flash on` or `.flash off`")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.flashchat(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.flashchat(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def toggle_chat_flash(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
@@ -115,7 +111,7 @@ async def toggle_chat_flash(event):
         await event.reply("❌ **Syntax Error:** Use `.flashchat on` or `.flashchat off`")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.flashlist$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.flashlist$", outgoing=True))
 @rishabh()
 async def list_flash_chats(event):
     db = load_db()
@@ -133,7 +129,7 @@ async def list_flash_chats(event):
     await event.reply(text)
 
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.saveflash$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.saveflash$", outgoing=True))
 @rishabh()
 async def manual_flash_download(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
@@ -164,7 +160,7 @@ async def manual_flash_download(event):
 # THE FLASHVAULT AUTO-LISTENER
 # ==========================================
 # Note: No @rishabh decorator here because it must listen to incoming messages!
-@CipherElite.on(events.NewMessage(incoming=True))
+@V26Userbot.on(events.NewMessage(incoming=True))
 async def auto_media_downloader(event):
     if not getattr(Config, "LOG_CHAT_ID", None):
         return

@@ -188,7 +188,7 @@ async def register_commands():
                 path,
                 caption=(
                     "📥 Downloaded by Elite Userbot\n"
-                    "💪 Powered by Thanos"
+                    "💪 Powered by V26 Userbot"
                 )
             )
 

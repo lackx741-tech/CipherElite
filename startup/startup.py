@@ -4,7 +4,7 @@ import asyncio
 import re
 from datetime import datetime
 from pathlib import Path
-from telethon.tl.functions.channels import JoinChannelRequest, InviteToChannelRequest
+from telethon.tl.functions.channels import InviteToChannelRequest
 from telethon.tl.functions.channels import EditAdminRequest
 from telethon.tl.types import ChatAdminRights
 from telethon import Button, events
@@ -339,7 +339,7 @@ async def send_startup_message(bot_client, user_client, plugins, bot_plugins, sy
             "**V26 Power Activated!**"
         )
         
-        buttons = [[Button.url("Support", "https://t.me/thanosprosss")]]
+        buttons = [[Button.url("Support", "https://t.me/v26userbot")]]
         logo_url = "https://files.catbox.moe/tocisn.png"
         
         try:
@@ -373,15 +373,7 @@ async def start_bot(client):
     await client.start()
     init_client(client)
 
-    for url, name in [
-        ("https://t.me/THANOS_PRO", "channel"),
-        ("https://t.me/cipherelite_support", "group")
-    ]:
-        try:
-            await client(JoinChannelRequest(url))
-            print(f"\033[1;32mJoined {name}: {url}\033[0m")
-        except Exception as e:
-            pass # Keep terminal clean on join fails
+    # No auto-join channels — V26 is standalone
 
     bot = await init_bot(client)
     bot_plugins = [] # Initialize empty list for scope

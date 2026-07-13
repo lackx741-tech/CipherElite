@@ -3,27 +3,20 @@ FROM python:3.10-slim-bookworm
 
 
 
-LABEL org.opencontainers.image.title="CipherElite"
+LABEL org.opencontainers.image.title="V26Userbot"
 LABEL org.opencontainers.image.description="Advanced Telegram Userbot"
-LABEL org.opencontainers.image.authors="Rishabh"
-LABEL org.opencontainers.image.source="https://github.com/rishabhops/CipherElite"
+LABEL org.opencontainers.image.authors="V26 Dev"
+LABEL org.opencontainers.image.source="https://github.com/lackx741-tech/V26Userbot"
 
 
 RUN echo "====================================" && \
-    echo "  ____ _       _                  " && \
-    echo " / ___(_)_ __ | |__   ___ _ __    " && \
-    echo "| |   | | '_ \| '_ \ / _ \ '__|   " && \
-    echo "| |___| | |_) | | | |  __/ |      " && \
-    echo " \____|_| .__/|_| |_|\___|_|      " && \
-    echo "        |_|                       " && \
-    echo " _____ _ _ _                      " && \
-    echo "| ____| (_) |_ ___                " && \
-    echo "|  _| | | | __/ _ \               " && \
-    echo "| |___| | | ||  __/               " && \
-    echo "|_____|_|_|\__\___|               " && \
+    echo "  __   _____  __                   " && \
+    echo "  \ \ / /__ \/ /_                  " && \
+    echo "   \ V /  / / '_ \                 " && \
+    echo "    \_/  /_/|_.__/                 " && \
     echo "====================================" && \
-    echo "   🚀 C I P H E R  E L I T E 🚀     " && \
-    echo "       By: Rishabh | Thanos Pro     " && \
+    echo "      🚀  V 2 6  U S E R B O T      " && \
+    echo "          Powered by V26            " && \
     echo "===================================="
 
 # Set the working directory inside the container

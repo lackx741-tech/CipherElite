@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    tools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -22,7 +18,7 @@ import platform
 import psutil
 from datetime import datetime
 from plugins.bot import add_handler
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 
 def init(client_instance):
     commands = [
@@ -34,7 +30,7 @@ def init(client_instance):
 
 async def register_commands():
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.id"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.id"))
     @rishabh()
     async def get_id(event):
         if event.is_reply:
@@ -47,7 +43,7 @@ async def register_commands():
 
 
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.dc"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.dc"))
     @rishabh()
     async def dc(event):
         if event.is_reply:

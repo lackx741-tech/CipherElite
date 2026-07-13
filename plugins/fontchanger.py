@@ -1,26 +1,22 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    Font Changer
 #  Author:         @LearningBotsOfficial
 #
-#  Based On:       CipherElite Userbot Plugin System
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Based On:       V26 Userbot Plugin System
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
 
 from telethon import events, Button
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -127,7 +123,7 @@ async def register_commands():
     }
 
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.font(?:\s+(.*))?$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.font(?:\s+(.*))?$"))
     @rishabh()
     async def font_changer(event):
         try:
@@ -138,7 +134,7 @@ async def register_commands():
             # =========================
             if not args:
                 menu = (
-                    "🎭 **CipherElite Font Changer**\n\n"
+                    "🎭 **V26 Font Changer**\n\n"
                     "📌 Usage:\n"
                     "`.font <number> <text>`\n\n"
                     "**Available Fonts:**\n"
@@ -179,7 +175,7 @@ async def register_commands():
             )
     
             await event.reply(
-                "🎭 **CipherElite Font Result**\n\n"
+                "🎭 **V26 Font Result**\n\n"
                 f"📝 **Original:** `{text}`\n"
                 f"✨ **Styled:** `{result}`"
             )
@@ -189,12 +185,12 @@ async def register_commands():
     
     
     
-    @CipherElite.on(events.NewMessage(pattern=r"\.fonts$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.fonts$"))
     @rishabh()
     async def show_fonts(event):
     
         text = (
-            "🎭 **Available Fonts — CipherElite**\n\n"
+            "🎭 **Available Fonts — V26 Userbot**\n\n"
             "1 → ᴀʙᴄ\n"
             "2 → 𝓪𝓫𝓬\n"
             "3 → 𝕒𝕓𝕔\n"

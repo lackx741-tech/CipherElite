@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    twitter
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -13,7 +13,7 @@ import glob
 import asyncio
 import aiohttp
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -27,7 +27,7 @@ def init(client_instance):
     add_handler("twitter", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.tweet"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.tweet"))
     @rishabh()
     async def tweet(event):
         text = event.text.split(maxsplit=1)
@@ -42,7 +42,7 @@ async def register_commands():
         await event.reply("⚠️ Twitter API integration requires API keys to be configured.\n\n"
                          "Please set up Twitter Developer account and add API keys to config.")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.twdl"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.twdl"))
     @rishabh()
     async def twitter_download(event):
         text = event.text.split(maxsplit=1)
@@ -87,7 +87,7 @@ async def register_commands():
                 await event.client.send_file(
                     event.chat_id,
                     file_path,
-                    caption="🐦 Downloaded from Twitter by CipherElite"
+                    caption="🐦 Downloaded from Twitter by V26Userbot"
                 )
                 
                 await msg.delete()
@@ -99,7 +99,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.twuser"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.twuser"))
     @rishabh()
     async def twitter_user(event):
         text = event.text.split(maxsplit=1)

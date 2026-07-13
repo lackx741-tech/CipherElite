@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    stickertools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -12,7 +12,7 @@ import os
 from PIL import Image, ImageDraw
 from telethon import events
 from telethon.tl.types import DocumentAttributeSticker, InputStickerSetShortName
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -26,7 +26,7 @@ def init(client_instance):
     add_handler("stickertools", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.kang"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.kang"))
     @rishabh()
     async def kang(event):
         if not event.is_reply:
@@ -65,7 +65,7 @@ async def register_commands():
                 img.save(file_path)
             
             # Try to add to pack via @Stickers bot
-            pack_name = f"cipher_{user.id}_by_{(await event.client.get_me()).username or 'CipherElite'}"
+            pack_name = f"v26_{user.id}_by_{(await event.client.get_me()).username or 'V26Bot'}"
             
             await msg.edit(f"✨ Sticker ready! Add it to your pack manually:\n\n"
                           f"1. Send to @Stickers bot\n"
@@ -80,7 +80,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.tiny"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.tiny"))
     @rishabh()
     async def tiny(event):
         if not event.is_reply:
@@ -137,7 +137,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.round"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.round"))
     @rishabh()
     async def round_sticker(event):
         if not event.is_reply:

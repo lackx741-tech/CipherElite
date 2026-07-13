@@ -1,6 +1,6 @@
 # =============================================================================
-#  CipherElite Digital Scrubber
-#  Author:         CipherElite Dev (@rishabhops)
+#  V26 Userbot - Digital Scrubber
+#  Author:         V26 Dev
 # =============================================================================
 
 import asyncio
@@ -8,7 +8,7 @@ from telethon import events
 from telethon.errors import ChatAdminRequiredError, FloodWaitError
 from telethon.utils import get_display_name
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh
 
@@ -32,7 +32,7 @@ def init(client_instance):
 # ==========================================
 # COMMAND HANDLER
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=r"^\.scrub(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.scrub(?: |$)(.*)", outgoing=True))
 @rishabh
 async def scrub_messages(event):
     args = event.pattern_match.group(1).strip()

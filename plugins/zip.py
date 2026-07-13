@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    zip
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -24,7 +20,7 @@ import shutil  # Added for directory removal
 
 from telethon import events
 from telethon.types import Message
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -37,7 +33,7 @@ def init(client_instance):
     add_handler("zip", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.zip"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.zip"))
     @rishabh()
     async def zip_files(event: Message):
         if not event.reply_to_msg_id:
@@ -65,7 +61,7 @@ async def register_commands():
         os.remove(download_path)
         await elite.delete()
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unzip"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unzip"))
     @rishabh()
     async def unzip_file(event: Message):
         if not event.reply_to_msg_id:

@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    globaltools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -14,7 +14,7 @@ from pathlib import Path
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChatBannedRights
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -78,7 +78,7 @@ async def get_user_from_event(event):
     return user_id, user_name
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.gban"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gban"))
     @rishabh()
     async def gban(event):
         user_id, user_name = await get_user_from_event(event)
@@ -115,7 +115,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Ban Complete**\n\n👤 User: {user_name} (`{user_id}`)\n📝 Reason: {reason}\n\n✔️ Banned in: {banned_count} groups\n❌ Failed: {failed_count} groups")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.ungban"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ungban"))
     @rishabh()
     async def ungban(event):
         user_id, user_name = await get_user_from_event(event)
@@ -149,7 +149,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Unban Complete**\n\n👤 User: {user_name} (`{user_id}`)\n\n✔️ Unbanned in: {unbanned_count} groups\n❌ Failed: {failed_count} groups")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.gmute"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gmute"))
     @rishabh()
     async def gmute(event):
         user_id, user_name = await get_user_from_event(event)
@@ -186,7 +186,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Mute Complete**\n\n👤 User: {user_name} (`{user_id}`)\n📝 Reason: {reason}\n\n✔️ Muted in: {muted_count} groups\n❌ Failed: {failed_count} groups")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.ungmute"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ungmute"))
     @rishabh()
     async def ungmute(event):
         user_id, user_name = await get_user_from_event(event)
@@ -220,7 +220,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Unmute Complete**\n\n👤 User: {user_name} (`{user_id}`)\n\n✔️ Unmuted in: {unmuted_count} groups\n❌ Failed: {failed_count} groups")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.gkick"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gkick"))
     @rishabh()
     async def gkick(event):
         user_id, user_name = await get_user_from_event(event)
@@ -243,7 +243,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Kick Complete**\n\n👤 User: {user_name} (`{user_id}`)\n\n✔️ Kicked from: {kicked_count} groups\n❌ Failed: {failed_count} groups")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.gpromote"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gpromote"))
     @rishabh()
     async def gpromote(event):
         user_id, user_name = await get_user_from_event(event)
@@ -270,7 +270,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Promote Complete**\n\n👤 User: {user_name} (`{user_id}`)\n\n✔️ Promoted in: {promoted_count} chats\n❌ Failed: {failed_count} chats")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.gdemote"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gdemote"))
     @rishabh()
     async def gdemote(event):
         user_id, user_name = await get_user_from_event(event)
@@ -296,7 +296,7 @@ async def register_commands():
         
         await msg.edit(f"✅ **Global Demote Complete**\n\n👤 User: {user_name} (`{user_id}`)\n\n✔️ Demoted in: {demoted_count} chats\n❌ Failed: {failed_count} chats")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.listgban"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.listgban"))
     @rishabh()
     async def listgban(event):
         data = load_data()
@@ -312,7 +312,7 @@ async def register_commands():
         
         await event.reply(msg)
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.gstat"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.gstat"))
     @rishabh()
     async def gstat(event):
         user_id, user_name = await get_user_from_event(event)

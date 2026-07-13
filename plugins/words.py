@@ -1,16 +1,16 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    words
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
 
 import aiohttp
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -25,7 +25,7 @@ def init(client_instance):
     add_handler("words", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.meaning"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.meaning"))
     @rishabh()
     async def meaning(event):
         text = event.text.split(maxsplit=1)
@@ -72,7 +72,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error fetching meaning: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.synonym"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.synonym"))
     @rishabh()
     async def synonym(event):
         text = event.text.split(maxsplit=1)
@@ -117,7 +117,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error fetching synonyms: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.antonym"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.antonym"))
     @rishabh()
     async def antonym(event):
         text = event.text.split(maxsplit=1)
@@ -162,7 +162,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error fetching antonyms: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.ud"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.ud"))
     @rishabh()
     async def urban_dictionary(event):
         text = event.text.split(maxsplit=1)

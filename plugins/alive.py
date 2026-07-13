@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    alive
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -18,7 +18,7 @@ from telethon.errors import BotInlineDisabledError
 from plugins.bot import add_handler, CMD_LIST
 
 from plugins.bot import bot 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from config.config import Config
 
@@ -31,15 +31,14 @@ CONFIG_FILE = DB_DIR / "alive_config.json"
 # ---------------------------------------------------------------------------
 ALIVE_BUTTONS = [
     [
-        Button.url("💬 Support", "https://t.me/cipherelite_support"),
-        Button.url("📢 Channel", "https://t.me/THANOS_PRO"),
+        Button.url("💬 Support", "https://t.me/v26userbot"),
     ]
 ]
 
 # Global cache to pass data from Userbot -> Assistant Bot
 # This ensures the bot sends exactly what the userbot calculated.
 INLINE_DATA = {
-    "alive_text": "CipherElite is Online",
+    "alive_text": "V26 Userbot is Online",
     "alive_media": None,
     "ping_text": "Pong!",
     "ping_media": None
@@ -173,7 +172,7 @@ def init(client):
 #  USERBOT HANDLERS (Triggers)
 # ============================================================================
 
-@CipherElite.on(events.NewMessage(pattern=r"\.alive"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.alive"))
 @rishabh()
 async def alive(event):
     # 1. Prepare Text
@@ -212,7 +211,7 @@ async def alive(event):
             print("❌ Cipher Error: Config.TG_BOT_USERNAME is missing or invalid.")
 
 
-@CipherElite.on(events.NewMessage(pattern=r"\.ping"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.ping"))
 @rishabh()
 async def ping(event):
     start = datetime.now()
@@ -294,7 +293,7 @@ if bot:
 async def send_plain(event, text, file=None):
     await event.reply(text, file=file)
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setalive\s+(\d+)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setalive\s+(\d+)"))
 @rishabh()
 async def set_alive(event):
     idx = int(event.pattern_match.group(1)) - 1
@@ -306,7 +305,7 @@ async def set_alive(event):
     else:
         await event.reply(f"❌ Invalid. Choose 1–{len(ALIVE_STYLES)}")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setping\s+(\d+)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setping\s+(\d+)"))
 @rishabh()
 async def set_ping(event):
     idx = int(event.pattern_match.group(1)) - 1
@@ -318,7 +317,7 @@ async def set_ping(event):
     else:
         await event.reply(f"❌ Invalid. Choose 1–{len(PING_STYLES)}")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setalivetext\s+(.+)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setalivetext\s+(.+)"))
 @rishabh()
 async def set_alive_text(event):
     tpl = event.pattern_match.group(1)
@@ -326,7 +325,7 @@ async def set_alive_text(event):
     save_config()
     await event.reply("✅ Custom alive text set.")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setpingtext\s+(.+)"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setpingtext\s+(.+)"))
 @rishabh()
 async def set_ping_text(event):
     tpl = event.pattern_match.group(1)
@@ -334,13 +333,13 @@ async def set_ping_text(event):
     save_config()
     await event.reply("✅ Custom ping text set.")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setalivepic"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setalivepic"))
 @rishabh()
 async def set_alive_pic(event):
     if event.reply_to_msg_id:
         msg = await event.get_reply_message()
         if msg.media:
-            path = await CipherElite.download_media(msg)
+            path = await V26Userbot.download_media(msg)
             user_config.alive_pic = path
             user_config.use_pic_for_alive = True
             save_config()
@@ -353,13 +352,13 @@ async def set_alive_pic(event):
             save_config()
             await event.reply("✅ Alive picture set from URL")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.setpingpic"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.setpingpic"))
 @rishabh()
 async def set_ping_pic(event):
     if event.reply_to_msg_id:
         msg = await event.get_reply_message()
         if msg.media:
-            path = await CipherElite.download_media(msg)
+            path = await V26Userbot.download_media(msg)
             user_config.ping_pic = path
             user_config.use_pic_for_ping = True
             save_config()
@@ -372,7 +371,7 @@ async def set_ping_pic(event):
             save_config()
             await event.reply("✅ Ping picture set from URL")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.togglealivepic"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.togglealivepic"))
 @rishabh()
 async def toggle_alive_pic(event):
     user_config.use_pic_for_alive = not user_config.use_pic_for_alive
@@ -380,7 +379,7 @@ async def toggle_alive_pic(event):
     state = "enabled" if user_config.use_pic_for_alive else "disabled"
     await event.reply(f"✅ Alive picture {state}")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.togglepingpic"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.togglepingpic"))
 @rishabh()
 async def toggle_ping_pic(event):
     user_config.use_pic_for_ping = not user_config.use_pic_for_ping
@@ -388,14 +387,14 @@ async def toggle_ping_pic(event):
     state = "enabled" if user_config.use_pic_for_ping else "disabled"
     await event.reply(f"✅ Ping picture {state}")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.resetalive"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.resetalive"))
 @rishabh()
 async def reset_alive(event):
     user_config.__init__()
     save_config()
     await event.reply("✅ Alive settings reset to default")
 
-@CipherElite.on(events.NewMessage(pattern=r"\.resetping"))
+@V26Userbot.on(events.NewMessage(pattern=r"\.resetping"))
 @rishabh()
 async def reset_ping(event):
     user_config.__init__()

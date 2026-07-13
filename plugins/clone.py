@@ -1,18 +1,14 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    clone
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
 #  IMPORTANT:
 #    • If you copy, fork, or include this plugin in your own bot,
-#      you MUST keep this header intact.
-#    • You MUST give proper credit to the CipherElite Userbot author:
-#        – GitHub:    https://github.com/rishabhops/CipherElite
-#        – Telegram:  @thanosceo
 #
 #  Thank you for respecting open-source software!
 # =============================================================================
@@ -22,7 +18,7 @@ from telethon.tl import functions, types
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.functions.photos import DeletePhotosRequest, UploadProfilePhotoRequest
 from telethon.tl.types import InputPhoto
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 import html
@@ -59,7 +55,7 @@ async def delete_messages_after_delay(event, response, delay=5):
         logger.warning(f"Failed to delete response: {e}")
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.clone"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.clone"))
     @rishabh()
     async def clone_profile(event):
         response = None
@@ -138,7 +134,7 @@ async def register_commands():
             if response:
                 asyncio.create_task(delete_messages_after_delay(event, response))
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.revert"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.revert"))
     @rishabh()
     async def revert_profile(event):
         response = None

@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    greetings
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 import json
 from pathlib import Path
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -55,7 +55,7 @@ def format_message(text, user):
     return text
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.setwelcome"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setwelcome"))
     @rishabh()
     async def setwelcome(event):
         text = event.text.split(maxsplit=1)
@@ -83,7 +83,7 @@ async def register_commands():
         
         await event.reply(f"✅ **Welcome Message Set!**\n\n{welcome_text}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.setgoodbye"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setgoodbye"))
     @rishabh()
     async def setgoodbye(event):
         text = event.text.split(maxsplit=1)
@@ -111,7 +111,7 @@ async def register_commands():
         
         await event.reply(f"✅ **Goodbye Message Set!**\n\n{goodbye_text}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.delwelcome"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.delwelcome"))
     @rishabh()
     async def delwelcome(event):
         chat_id = str(event.chat_id)
@@ -128,7 +128,7 @@ async def register_commands():
         
         await event.reply("✅ Welcome message deleted!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.delgoodbye"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.delgoodbye"))
     @rishabh()
     async def delgoodbye(event):
         chat_id = str(event.chat_id)
@@ -145,7 +145,7 @@ async def register_commands():
         
         await event.reply("✅ Goodbye message deleted!")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.getwelcome"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.getwelcome"))
     @rishabh()
     async def getwelcome(event):
         chat_id = str(event.chat_id)
@@ -158,7 +158,7 @@ async def register_commands():
         welcome_text = data[chat_id]["welcome"]
         await event.reply(f"📝 **Current Welcome Message:**\n\n{welcome_text}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.getgoodbye"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.getgoodbye"))
     @rishabh()
     async def getgoodbye(event):
         chat_id = str(event.chat_id)
@@ -171,7 +171,7 @@ async def register_commands():
         goodbye_text = data[chat_id]["goodbye"]
         await event.reply(f"📝 **Current Goodbye Message:**\n\n{goodbye_text}")
 
-    @CipherElite.on(events.ChatAction)
+    @V26Userbot.on(events.ChatAction)
     async def handle_greetings(event):
         chat_id = str(event.chat_id)
         data = load_data()

@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin - Personal Assistant PM Manager
+#  V26 Userbot Plugin - Personal Assistant PM Manager
 #
 #  Plugin Name:    pmpermit
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  LICENSE:        MIT
 # =============================================================================
@@ -18,7 +18,7 @@ from pathlib import Path
 
 import google.generativeai as genai
 from telethon import events, functions
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 from config.config import Config
@@ -39,8 +39,8 @@ class PersonalAssistant:
         self.ai_config = ai_config  # Reference to centralized config
         self.data = {
             "config": {
-                "alive_name": os.environ.get("ALIVE_NAME", "Rishabh"),
-                "assistant_name": os.environ.get("ASSISTANT_NAME", "CipherAI"),
+                "alive_name": os.environ.get("ALIVE_NAME", "V26 User"),
+                "assistant_name": os.environ.get("ASSISTANT_NAME", "V26 AI"),
                 "pmpermit_pic": os.environ.get("PMPERMIT_PIC", DEFAULT_PMPERMIT_PIC),
                 "use_pic": True,
                 "max_warnings": int(os.environ.get("MAX_WARNINGS", 5)),
@@ -295,11 +295,11 @@ def init(client):
     ]
     add_handler("pmpermit", commands, "Personal Assistant PM Manager")
 
-    @CipherElite.on(events.NewMessage(incoming=True))
+    @V26Userbot.on(events.NewMessage(incoming=True))
     async def _incoming(event):
         await assistant.handle_message(event)
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.(?:a|approve)(?:$|\s)"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.(?:a|approve)(?:$|\s)"))
     @rishabh()
     async def _approve(event):
         if event.is_private:
@@ -316,7 +316,7 @@ def init(client):
         assistant._save()
         await assistant.send_message(event, "approved")
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.(?:da|disapprove)(?:$|\s)"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.(?:da|disapprove)(?:$|\s)"))
     @rishabh()
     async def _disapprove(event):
         if event.is_private:
@@ -332,7 +332,7 @@ def init(client):
         assistant._save()
         await assistant.send_message(event, "disapproved")
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.listapproved$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.listapproved$"))
     @rishabh()
     async def _list(event):
         approved = assistant.data["approved_users"]
@@ -345,13 +345,13 @@ def init(client):
             text += f"• {name} (`{uid}`)\n"
         await event.reply(text)
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.setpermitpic(?:\s+.*)?$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.setpermitpic(?:\s+.*)?$"))
     @rishabh()
     async def _setpic(event):
         if event.reply_to_msg_id:
             msg = await event.get_reply_message()
             if msg.media:
-                path = await CipherElite.download_media(msg)
+                path = await V26Userbot.download_media(msg)
                 assistant.data["config"]["pmpermit_pic"] = path
                 assistant.data["config"]["use_pic"] = True
                 assistant._save()
@@ -365,7 +365,7 @@ def init(client):
             return await event.reply("✅ Permit picture set from URL")
         await event.reply("❌ Usage: .setpermitpic <url> or reply to an image")
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.togglepermitpic$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.togglepermitpic$"))
     @rishabh()
     async def _togglepic(event):
         cfg = assistant.data["config"]
@@ -375,7 +375,7 @@ def init(client):
         await event.reply(f"✅ Permit picture {state}")
 
     # NEW: global pmpermit toggle
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.pmpermit(?:$|\s)(on|off)?"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.pmpermit(?:$|\s)(on|off)?"))
     @rishabh()
     async def _toggle_pmpermit(event):
         arg = (event.pattern_match.group(1) or "").lower()
@@ -390,7 +390,7 @@ def init(client):
         state = "ON ✅" if cfg.get("pmpermit_enabled", True) else "OFF 🚫"
         await event.reply(f"PM permit is currently {state}\nUsage: `.pmpermit on` or `.pmpermit off`")
 
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.block(?:$|\s)"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.block(?:$|\s)"))
     @rishabh()
     async def _block(event):
         if event.is_private:

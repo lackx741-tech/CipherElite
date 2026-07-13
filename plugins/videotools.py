@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    videotools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 import os
 import asyncio
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -40,7 +40,7 @@ async def get_video_from_reply(event):
     return file_path
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.sample"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sample"))
     @rishabh()
     async def sample(event):
         msg = await event.reply("🎬 Creating video sample...")
@@ -81,7 +81,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.vshots"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.vshots"))
     @rishabh()
     async def vshots(event):
         msg = await event.reply("📸 Taking screenshots...")
@@ -147,7 +147,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.vtrim"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.vtrim"))
     @rishabh()
     async def vtrim(event):
         msg = await event.reply("✂️ Trimming video...")

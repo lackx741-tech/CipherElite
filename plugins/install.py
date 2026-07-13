@@ -1,5 +1,5 @@
 # ==============================================================================
-#  🎭 Cipher Elite - Advanced Plugin Manager (Fixed)
+#  🎭 V26 Userbot - Advanced Plugin Manager
 #  Features: Smart Dependency Mapping & Auto-Install
 # ==============================================================================
 
@@ -12,7 +12,7 @@ import importlib.util
 import site
 from pathlib import Path
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -156,7 +156,7 @@ async def register_commands():
     # -------------------------------------------------------------------------
     # 1. INSTALL / UPDATE
     # -------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.install$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.install$"))
     @rishabh()
     async def install_handler(event):
         reply = await event.get_reply_message()
@@ -235,7 +235,7 @@ async def register_commands():
             libs_msg = f"\n📦 **Libs Added:** `{installed_count}`" if installed_count > 0 else ""
             
             await status.edit(
-                f"🎭 **Cipher Elite Manager**\n\n"
+                f"🎭 **V26 Userbot Manager**\n\n"
                 f"✅ **Plugin {action}:** `{file_name}`"
                 f"{libs_msg}\n"
                 f"✨ **Status:** Active!"
@@ -248,7 +248,7 @@ async def register_commands():
     # -------------------------------------------------------------------------
     # 2. UNINSTALLER
     # -------------------------------------------------------------------------
-    @CipherElite.on(events.NewMessage(pattern=r"\.uninstall\s+(.+)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.uninstall\s+(.+)"))
     @rishabh()
     async def uninstall_handler(event):
         plugin_name = event.pattern_match.group(1).strip()

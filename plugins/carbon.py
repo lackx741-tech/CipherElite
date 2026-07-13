@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    carbon (ultra edition)
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 #
@@ -19,7 +19,7 @@ import urllib.parse
 
 import aiohttp
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -267,7 +267,7 @@ async def _fetch_carbon(code, theme, cfg):
 async def _fetch_rayso(code, theme):
     payload = {
         "code": code,
-        "title": "CipherElite",
+        "title": "V26 Userbot",
         "theme": theme,
         "darkMode": True,
         "padding": 32,
@@ -316,7 +316,7 @@ async def _run_render(event, status_text, fetch_coro, caption):
 # -----------------------------------------------------------------------------
 async def register_commands():
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.carbon(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.carbon(\s|$)"))
     @rishabh()
     async def carbon(event):
         code, _ = await _resolve_code(event)
@@ -331,7 +331,7 @@ async def register_commands():
             f"✨ Carbon · `{cfg['carbon_theme']}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.rcarbon(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.rcarbon(\s|$)"))
     @rishabh()
     async def rcarbon(event):
         code, _ = await _resolve_code(event)
@@ -347,7 +347,7 @@ async def register_commands():
             f"✨ Carbon · 🎲 `{theme}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.tcarbon(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.tcarbon(\s|$)"))
     @rishabh()
     async def tcarbon(event):
         theme, code, err = await _resolve_theme_and_code(event, CARBON_THEMES)
@@ -365,7 +365,7 @@ async def register_commands():
             f"✨ Carbon · `{theme}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.carbonall(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.carbonall(\s|$)"))
     @rishabh()
     async def carbonall(event):
         """Render the same code in 4 random themes so you can pick one."""
@@ -390,7 +390,7 @@ async def register_commands():
         else:
             await msg.edit("❌ All renders failed — the carbon API may be down.")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.rayso(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.rayso(\s|$)"))
     @rishabh()
     async def rayso(event):
         code, _ = await _resolve_code(event)
@@ -405,7 +405,7 @@ async def register_commands():
             f"✨ ray.so · `{cfg['rayso_theme']}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.rrayso(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.rrayso(\s|$)"))
     @rishabh()
     async def rrayso(event):
         code, _ = await _resolve_code(event)
@@ -420,7 +420,7 @@ async def register_commands():
             f"✨ ray.so · 🎲 `{theme}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.snap(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.snap(\s|$)"))
     @rishabh()
     async def snap(event):
         code, lang = await _resolve_code(event)
@@ -435,7 +435,7 @@ async def register_commands():
             f"✨ Snap · `{cfg['snap_theme']}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.tsnap(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.tsnap(\s|$)"))
     @rishabh()
     async def tsnap(event):
         theme, code, err = await _resolve_theme_and_code(event, SNAP_THEMES)
@@ -452,7 +452,7 @@ async def register_commands():
             f"✨ Snap · `{theme}`",
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.themes(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.themes(\s|$)"))
     @rishabh()
     async def themes(event):
         carbon_list = ", ".join(f"`{t}`" for t in CARBON_THEMES)
@@ -467,7 +467,7 @@ async def register_commands():
             f"Use: `.tcarbon <theme>`, `.tsnap <theme>`, `.cset theme <name>`"
         )
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.cset(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.cset(\s|$)"))
     @rishabh()
     async def cset(event):
         cfg = _load_config()
@@ -522,7 +522,7 @@ async def register_commands():
         _save_config(cfg)
         await event.reply(f"✅ Saved: `{key}` → `{value}`")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.creset(\s|$)"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.creset(\s|$)"))
     @rishabh()
     async def creset(event):
         _save_config(dict(DEFAULT_CONFIG))

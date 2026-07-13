@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    chats
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 from telethon import events
 from telethon.tl.functions.channels import CreateChannelRequest, DeleteChannelRequest, EditPhotoRequest, EditTitleRequest
 from telethon.tl.functions.messages import ExportChatInviteRequest, CreateChatRequest
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -27,7 +27,7 @@ def init(client_instance):
     add_handler("chats", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.delchat"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.delchat"))
     @rishabh()
     async def delchat(event):
         chat = await event.get_chat()
@@ -48,7 +48,7 @@ async def register_commands():
             except Exception as e:
                 await event.reply(f"❌ Failed to delete/leave chat: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.getlink"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.getlink"))
     @rishabh()
     async def getlink(event):
         if event.is_private:
@@ -61,7 +61,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ Failed to get invite link: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.create"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.create"))
     @rishabh()
     async def create(event):
         text = event.text.split(maxsplit=2)
@@ -78,7 +78,7 @@ async def register_commands():
                 # Create channel
                 result = await event.client(CreateChannelRequest(
                     title=chat_name,
-                    about="Created by CipherElite",
+                    about="Created by V26 Userbot",
                     megagroup=False
                 ))
                 await event.reply(f"✅ **Channel Created!**\n\n📢 Name: {chat_name}\n🆔 ID: `{result.chats[0].id}`")
@@ -86,7 +86,7 @@ async def register_commands():
                 # Create group
                 result = await event.client(CreateChannelRequest(
                     title=chat_name,
-                    about="Created by CipherElite",
+                    about="Created by V26 Userbot",
                     megagroup=True
                 ))
                 await event.reply(f"✅ **Group Created!**\n\n👥 Name: {chat_name}\n🆔 ID: `{result.chats[0].id}`")
@@ -95,7 +95,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ Failed to create chat: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.setgpic"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setgpic"))
     @rishabh()
     async def setgpic(event):
         if event.is_private:
@@ -130,7 +130,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ Failed to set group photo: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.setgname"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.setgname"))
     @rishabh()
     async def setgname(event):
         if event.is_private:

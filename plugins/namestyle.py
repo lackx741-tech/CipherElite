@@ -1,15 +1,15 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    namestyle
-#  Author:         Rishabh Anand (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
 
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -174,7 +174,7 @@ def init(client_instance):
 # Command Registration
 # =========================
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.namestyle(?:\s+(.+))?$"))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.namestyle(?:\s+(.+))?$"))
 @rishabh()
 async def namestyle(event):
     raw_name = await get_input_text(event)
@@ -182,7 +182,7 @@ async def namestyle(event):
     if not raw_name:
         await event.reply(
             "❌ **Usage:**\n"
-            "`.namestyle Rishabh Anand`\n\n"
+            "`.namestyle John Doe`\n\n"
             "**Or reply to any text with:**\n"
             "`.namestyle`"
         )

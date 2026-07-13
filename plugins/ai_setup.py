@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin - AI Setup Manager
+#  V26 Userbot Plugin - AI Setup Manager
 #
 #  Plugin Name:    ai_setup
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  LICENSE:        MIT
 # =============================================================================
@@ -14,7 +14,7 @@ import asyncio
 from pathlib import Path
 from datetime import datetime
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -93,7 +93,7 @@ def init(client):
     ]
     add_handler("ai_setup", commands, "AI Configuration Manager")
     
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.setai(?:\s+(.+))?$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.setai(?:\s+(.+))?$"))
     @rishabh()
     async def _setai(event):
         """Set Gemini API key"""
@@ -120,7 +120,7 @@ def init(client):
         except:
             pass
     
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.rmai$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.rmai$"))
     @rishabh()
     async def _rmai(event):
         """Remove AI key"""
@@ -137,7 +137,7 @@ def init(client):
         except:
             pass
     
-    @CipherElite.on(events.NewMessage(outgoing=True, pattern=r"\.aistatus$"))
+    @V26Userbot.on(events.NewMessage(outgoing=True, pattern=r"\.aistatus$"))
     @rishabh()
     async def _aistatus(event):
         """Show AI status"""

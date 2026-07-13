@@ -4,7 +4,7 @@ from telethon import events
 from telethon.utils import get_display_name
 
 from config.config import Config
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh
 
@@ -25,7 +25,7 @@ def init(client_instance):
     )
     add_handler("whisper", commands, description)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.w(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.w(?: |$)(.*)", outgoing=True))
 @rishabh
 async def send_whisper(event):
     # 1. INSTANTLY delete the message so nobody sees the secret text

@@ -1,6 +1,6 @@
 from telethon import events
 from telethon.tl.functions.channels import GetAdminedPublicChannelsRequest
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 import time
@@ -33,7 +33,7 @@ def format_time(seconds):
     return f"{seconds}s"
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.count$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.count$"))
     @rishabh()
     async def count_stats(event):
         """
@@ -80,7 +80,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.stats$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.stats$"))
     @rishabh()
     async def detailed_stats(event):
         """
@@ -136,7 +136,7 @@ async def register_commands():
         except Exception as e:
             await event.reply(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.reserved$"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.reserved$"))
     @rishabh()
     async def reserved_usernames(event):
         """

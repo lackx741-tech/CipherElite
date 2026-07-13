@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    imagetools
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 import os
 from PIL import Image, ImageFilter, ImageOps, ImageEnhance
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -45,7 +45,7 @@ async def get_image_from_reply(event):
     return file_path
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.grey"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.grey"))
     @rishabh()
     async def grey(event):
         msg = await event.reply("🎨 Processing image...")
@@ -78,7 +78,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.blur"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.blur"))
     @rishabh()
     async def blur(event):
         msg = await event.reply("🎨 Processing image...")
@@ -111,7 +111,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.mirror"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.mirror"))
     @rishabh()
     async def mirror(event):
         msg = await event.reply("🎨 Processing image...")
@@ -144,7 +144,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.flip"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.flip"))
     @rishabh()
     async def flip(event):
         msg = await event.reply("🎨 Processing image...")
@@ -177,7 +177,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.negative"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.negative"))
     @rishabh()
     async def negative(event):
         msg = await event.reply("🎨 Processing image...")
@@ -210,7 +210,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.sketch"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.sketch"))
     @rishabh()
     async def sketch(event):
         msg = await event.reply("🎨 Processing image...")
@@ -246,7 +246,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.border"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.border"))
     @rishabh()
     async def border(event):
         msg = await event.reply("🎨 Processing image...")
@@ -283,7 +283,7 @@ async def register_commands():
         except Exception as e:
             await msg.edit(f"❌ Error: {str(e)}")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.pixelate"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.pixelate"))
     @rishabh()
     async def pixelate(event):
         msg = await event.reply("🎨 Processing image...")

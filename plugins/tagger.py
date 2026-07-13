@@ -5,7 +5,7 @@ from telethon import events
 from telethon.errors import FloodWaitError, ChatWriteForbiddenError, UserBannedInChannelError
 
 from config.config import Config
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh  
 
@@ -191,7 +191,7 @@ async def handle_user_tag(event, msg_list=None, static_text=None):
 # COMMAND HANDLERS
 # ==========================================
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.btag(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.btag(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def bulk_tag(event):
     if event.id in processed_msgs: return
@@ -203,7 +203,7 @@ async def bulk_tag(event):
     
     await handle_bulk_tag(event, static_text=custom_msg)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.utag(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.utag(?: |$)(.*)", outgoing=True))
 @rishabh()
 async def user_tag(event):
     if event.id in processed_msgs: return
@@ -215,49 +215,49 @@ async def user_tag(event):
         
     await handle_user_tag(event, static_text=custom_msg)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.btaggm$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.btaggm$", outgoing=True))
 @rishabh()
 async def btag_gm(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_bulk_tag(event, msg_list=GM_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.utaggm$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.utaggm$", outgoing=True))
 @rishabh()
 async def utag_gm(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_user_tag(event, msg_list=GM_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.btaggn$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.btaggn$", outgoing=True))
 @rishabh()
 async def btag_gn(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_bulk_tag(event, msg_list=GN_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.utaggn$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.utaggn$", outgoing=True))
 @rishabh()
 async def utag_gn(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_user_tag(event, msg_list=GN_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.btagvc$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.btagvc$", outgoing=True))
 @rishabh()
 async def btag_vc(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_bulk_tag(event, msg_list=VC_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.utagvc$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.utagvc$", outgoing=True))
 @rishabh()
 async def utag_vc(event):
     if event.id in processed_msgs: return
     processed_msgs.append(event.id)
     await handle_user_tag(event, msg_list=VC_MESSAGES)
 
-@CipherElite.on(events.NewMessage(pattern=r"^\.cancel$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.cancel$", outgoing=True))
 @rishabh()
 async def cancel_tagging(event):
     if event.id in processed_msgs: return

@@ -1,6 +1,6 @@
 # =============================================================================
-#  CipherElite The Bait v2.0 (Infinite Chat Actions)
-#  Author:         CipherElite Dev (@rishabhops)
+#  V26 Userbot - The Bait v2.0 (Infinite Chat Actions)
+#  Author:         V26 Dev
 #
 # =============================================================================
 
@@ -9,7 +9,7 @@ import time
 from telethon import events
 from telethon.tl import functions, types
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh
 
@@ -100,7 +100,7 @@ async def action_runner(client, chat_id, action, task_key, duration=None):
 # ==========================================
 # COMMAND HANDLER
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=CMD_PATTERN, outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=CMD_PATTERN, outgoing=True))
 @rishabh
 async def bait_handler(event):
     action_type = event.pattern_match.group(1).lower()
@@ -146,7 +146,7 @@ async def bait_handler(event):
 # ==========================================
 # LIST ACTIVE BAITS
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=r"^\.baitlist$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.baitlist$", outgoing=True))
 @rishabh
 async def bait_list(event):
     if not BAIT_TASKS:
@@ -162,7 +162,7 @@ async def bait_list(event):
 # ==========================================
 # STOP ALL IN CURRENT CHAT
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=r"^\.baitstop$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.baitstop$", outgoing=True))
 @rishabh
 async def stop_all_bait(event):
     chat_id = event.chat_id
@@ -182,7 +182,7 @@ async def stop_all_bait(event):
 # ==========================================
 # GLOBAL PANIC BUTTON
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=r"^\.baitstopall$", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.baitstopall$", outgoing=True))
 @rishabh
 async def stop_everything(event):
     if not BAIT_TASKS:

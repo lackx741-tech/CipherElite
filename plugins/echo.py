@@ -1,9 +1,9 @@
 # =============================================================================
-#  CipherElite Userbot Plugin
+#  V26 Userbot Plugin
 #
 #  Plugin Name:    echo
-#  Author:         CipherElite Dev (@rishabhops)
-#  Repository:     https://github.com/rishabhops/CipherElite
+#  Author:         V26 Dev
+#  Repository:     https://github.com/lackx741-tech/V26Userbot
 #
 #  License:        MIT
 # =============================================================================
@@ -11,7 +11,7 @@
 import json
 from pathlib import Path
 from telethon import events
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from utils.decorators import rishabh
 from plugins.bot import add_handler
 
@@ -40,7 +40,7 @@ def init(client_instance):
     add_handler("echo", commands, description)
 
 async def register_commands():
-    @CipherElite.on(events.NewMessage(pattern=r"\.echo"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.echo"))
     @rishabh()
     async def echo(event):
         if not event.is_reply:
@@ -71,7 +71,7 @@ async def register_commands():
         
         await event.reply(f"🔊 Now echoing messages from {user_name} (`{user_id}`)")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.unecho"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.unecho"))
     @rishabh()
     async def unecho(event):
         if not event.is_reply:
@@ -107,7 +107,7 @@ async def register_commands():
         
         await event.reply(f"🔇 Stopped echoing messages from {user_name} (`{user_id}`)")
 
-    @CipherElite.on(events.NewMessage(pattern=r"\.listecho"))
+    @V26Userbot.on(events.NewMessage(pattern=r"\.listecho"))
     @rishabh()
     async def listecho(event):
         data = load_data()
@@ -122,7 +122,7 @@ async def register_commands():
         
         await event.reply(msg)
 
-    @CipherElite.on(events.NewMessage(incoming=True))
+    @V26Userbot.on(events.NewMessage(incoming=True))
     async def echo_handler(event):
         # Skip if not a tracked user
         data = load_data()

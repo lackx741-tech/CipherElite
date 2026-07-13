@@ -1,12 +1,12 @@
 # =============================================================================
-#  CipherElite Offline Shayari Repository
-#  Author:         CipherElite Dev (@rishabhops)
+#  V26 Userbot - Offline Shayari Repository
+#  Author:         V26 Dev
 # =============================================================================
 
 import random
 from telethon import events
 
-from utils.utils import CipherElite
+from utils.utils import V26Userbot
 from plugins.bot import add_handler
 from utils.decorators import rishabh
 
@@ -60,7 +60,7 @@ def init(client_instance):
 # ==========================================
 # COMMAND HANDLER
 # ==========================================
-@CipherElite.on(events.NewMessage(pattern=r"^\.shayari(?: |$)(.*)", outgoing=True))
+@V26Userbot.on(events.NewMessage(pattern=r"^\.shayari(?: |$)(.*)", outgoing=True))
 @rishabh
 async def random_shayari_handler(event):
     category = event.pattern_match.group(1).strip().lower()
@@ -82,7 +82,7 @@ async def random_shayari_handler(event):
     final_text = (
         f"╭───〔 🎭 **{category.capitalize()} Shayari** 〕───╮\n\n"
         f"**{selected_shayari}**\n\n"
-        f"╰───〔 ✍️ **CipherElite** 〕───╯"
+        f"╰───〔 ✍️ **V26 Userbot** 〕───╯"
     )
     
     await event.edit(final_text)

@@ -360,10 +360,12 @@ async def start_bot(client):
     print(f"      Initializing {V26_USERBOT_NAME.upper()}")
     print("==================================================\033[0m\n")
 
+    from config.config import Config
+
     required_configs = [
-        (client.api_id, "API_ID"),
-        (client.api_hash, "API_HASH"),
-        (client.session, "V26_SESSION")
+        (Config.API_ID, "API_ID"),
+        (Config.API_HASH, "API_HASH"),
+        (Config.V26_SESSION, "V26_SESSION")
     ]
     for value, name in required_configs:
         if not value:
@@ -407,7 +409,6 @@ async def start_bot(client):
 
     system_info = await display_startup_message(client, plugins, bot_plugins)
     
-    from config.config import Config
     if bot:
         await send_startup_message(bot, client, plugins, bot_plugins, system_info, Config)
 

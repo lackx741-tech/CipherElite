@@ -2,6 +2,8 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 V26_USERBOT_NAME = "V26 Userbot"
 V26_REPOSITORY_URL = "https://github.com/lackx741-tech/CipherElite"
+V26_REPOSITORY_OWNER = "lackx741-tech"
+V26_REPOSITORY_NAME = "CipherElite"
 V26_SESSION_ENV_VAR = "V26_SESSION"
 V26_SESSION_BOT_USERNAME = "@v26_session_maker_bot"
 

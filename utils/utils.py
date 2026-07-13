@@ -2,6 +2,7 @@ from telethon import TelegramClient
 
 from utils.helpers import V26_USERBOT_NAME
 
+# Backward-compatible client reference used across existing plugins.
 CipherElite = None
 V26Userbot = None
 BOT_DISPLAY_NAME = V26_USERBOT_NAME

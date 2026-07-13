@@ -16,6 +16,7 @@ import json
 from telethon import events
 from utils.utils import CipherElite
 from utils.decorators import rishabh
+from utils.helpers import V26_REPOSITORY_NAME, V26_REPOSITORY_OWNER
 from plugins.bot import add_handler
 
 # Store conversation history per chat
@@ -47,7 +48,7 @@ HOWEVER, you are also a general-purpose AI. You MUST answer general everyday que
 8. When asked about deployment or setup for V26: Provide accurate, step-by-step instructions based on V26's actual structure (Telethon, Python 3.8+, VPS deployment, SQLite databases).
 """
 
-async def fetch_repository_data(owner="lackx741-tech", repo="CipherElite", branch="elite"):
+async def fetch_repository_data(owner=V26_REPOSITORY_OWNER, repo=V26_REPOSITORY_NAME, branch="elite"):
     """Fetch repository structure and README from GitHub"""
     try:
         async with aiohttp.ClientSession() as session:

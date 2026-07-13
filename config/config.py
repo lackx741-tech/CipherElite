@@ -9,10 +9,12 @@ class Config:
     
     # Bot Configuration
     V26_BOT_PREFIX = V26_BOT_PREFIX
+    # Backward-compatible alias used by existing plugins.
     BOT_PREFIX = V26_BOT_PREFIX
     BOT_NAME = V26_USERBOT_NAME
     BOT_TOKEN = BOT_TOKEN
     V26_BOT_USERNAME = V26_BOT_USERNAME
+    # Backward-compatible alias used by existing plugins.
     TG_BOT_USERNAME = V26_BOT_USERNAME
     
     # Access Control
